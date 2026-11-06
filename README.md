@@ -23,3 +23,12 @@ cd web && python -m http.server    # open http://localhost:8000
 - Partners and equity shares are the line-up at grant.
 - Geometry is ED50 (Sodir native), requested as WGS84. Distances are edge to edge in ETRS89-LAEA (EPSG:3035), in km.
 - Operator colours are brand-derived hues re-stepped to pass CVD checks. They are not official brand values.
+
+## GitHub Pages
+
+`.github/workflows/pages.yml` builds `_site/` with `scripts/build_site.py` and deploys it with GitHub Actions.
+The build script wraps the `web/index.html` fragment in a full HTML document.
+The workflow runs on pushes to `main` or this branch that touch `web/`, and can also be started by hand.
+
+One-time setup: go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+The site is then served at `https://<owner>.github.io/APA_awards/`.
