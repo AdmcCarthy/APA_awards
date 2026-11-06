@@ -144,6 +144,11 @@ figcaption, .caption { font-size: 0.8rem; color: var(--muted); margin-top: 0.6re
 .g-Equinor { fill: var(--c-equinor); } .g-AkerBP { fill: var(--c-akerbp); } .g-VarEnergi { fill: var(--c-var); }
 .g-DNO { fill: var(--c-dno); } .g-HarbourEnergy { fill: var(--c-harbour); } .g-Wellesley { fill: var(--c-wellesley); } .g-Other { fill: var(--c-other); }
 
+/* fact list */
+.facts { display: grid; gap: 0; align-content: start; border-top: 2px solid var(--ink); }
+.facts div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; padding-block: 0.9rem; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.facts b { font-family: var(--f-display); font-weight: 600; font-size: 1.7rem; line-height: 1; white-space: nowrap; }
+.facts span { font-size: 0.92rem; color: var(--ink-2); }
 /* changes cards */
 .changes { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
 .change { border-top: 2px solid var(--ink); padding-top: 0.7rem; font-size: 0.86rem; }
@@ -223,14 +228,14 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
     <div>
       <span class="kicker">Norwegian shelf · APA 2025 · granted 20 March 2026</span>
       <h1>Close to home</h1>
-      <p class="dek">Norway's latest licensing round handed out 24,000 km² of seabed. Most of the 56 new licences sit right next to existing fields. Six far-flung licences hold half of the acreage.</p>
+      <p class="dek">Norway's latest licensing round was about filling gaps. Of the 56 new licences, 21 lie within a kilometre of a producing field. Only a handful are genuine long shots, and most of those belong to one company.</p>
       <p class="byline">A data story built from Sodir FactMaps, retrieved 6 November 2026.</p>
     </div>
     <div class="ledger">
-      <div><b class="num" data-k="n">56</b><span>production licences granted</span></div>
-      <div><b class="num" data-k="co">19</b><span>companies, 13 of them operators</span></div>
-      <div><b class="num" data-k="km2">23,962</b><span>km² awarded, about twice last year</span></div>
-      <div><b class="num" data-k="med">2.1 km</b><span>median gap to a producing field</span></div>
+      <div><b class="num" data-k="n">56</b><span>production licences, 19 companies</span></div>
+      <div><b class="num" data-k="le1">21</b><span>within 1 km of a producing field</span></div>
+      <div><b class="num" data-k="eqn">35</b><span>include Equinor as operator or partner</span></div>
+      <div><b class="num" data-k="chg">4</b><span>changed hands within eight months</span></div>
     </div>
   </div>
 </header>
@@ -254,29 +259,29 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
       <div class="step" data-step="ncs">
         <div class="step-card">
           <span class="label">The shelf</span>
-          <h3>56 new licences, 24,000 km²</h3>
-          <p>Every year the government opens a predefined area of mature acreage for applications (shown in pale blue). The new licences, coloured by operator, sit among the hundreds that already exist (grey).</p>
+          <h3>56 new licences among hundreds of old ones</h3>
+          <p>Every year the government opens a predefined area of mature acreage for applications (shown in pale blue). The new licences, coloured by operator, almost vanish among the existing ones (grey). That is by design: APA exists to keep exploration going around infrastructure that is already in place.</p>
         </div>
       </div>
       <div class="step" data-step="ns">
         <div class="step-card">
-          <span class="label">North Sea · <span data-k="ns-n">30</span> licences · <span data-k="ns-km2">7,595</span> km²</span>
-          <h3>Small pieces next to big hubs</h3>
-          <p>A typical North Sea licence is just <span data-k="ns-med">80</span> km². Ten are stratigraphic, cut to fit above or below licences that already exist. The outlier is DNO's 1278, which covers 2,698 km² in the far south near Trym.</p>
+          <span class="label">North Sea · <span data-k="ns-n">30</span> licences</span>
+          <h3>Slices around the hubs</h3>
+          <p>Half of the North Sea licences are within 1.7 km of a producing field. Ten are stratigraphic, granted only above or below a set depth so they stack onto existing licences. Eleven more extend licences that already exist.</p>
         </div>
       </div>
       <div class="step" data-step="nws">
         <div class="step-card">
-          <span class="label">Norwegian Sea · <span data-k="nws-n">21</span> licences · <span data-k="nws-km2">11,356</span> km²</span>
-          <h3>Where the acreage went</h3>
-          <p>The Norwegian Sea took 47% of the area, mostly in four licences more than 60 km from any producing field. Three are just north of 62°N; Aker BP's 1308 is far out on the Vøring margin.</p>
+          <span class="label">Norwegian Sea · <span data-k="nws-n">21</span> licences</span>
+          <h3>Tiebacks, and a few long shots</h3>
+          <p>Aker BP, Vår Energi and Harbour took acreage touching Alve, Kristin and Skarv. Further out, four licences lie more than 60 km from the nearest field. They are the round's main step-outs, and Aker BP operates two of them.</p>
         </div>
       </div>
       <div class="step" data-step="bs">
         <div class="step-card">
-          <span class="label">Barents Sea · <span data-k="bs-n">5</span> licences · <span data-k="bs-km2">5,011</span> km²</span>
-          <h3>One licence, one-fifth of the round</h3>
-          <p>Aker BP's 1313 covers 4,345 km² and lies 106 km from Snøhvit. It is the largest and most remote licence in the round, with 18% of all the acreage awarded.</p>
+          <span class="label">Barents Sea · <span data-k="bs-n">5</span> licences</span>
+          <h3>Going it alone</h3>
+          <p>Aker BP's 1313 lies 106 km from Snøhvit, the most remote licence in the round, and Aker BP holds it with no partners. Only one other licence has a single owner: Aker BP's 1308. The other Barents awards sit close to Goliat and Snøhvit.</p>
         </div>
       </div>
       <div class="step" data-step="ops">
@@ -295,10 +300,10 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
       <div class="chapter-head">
         <div>
           <span class="kicker">1 · The winners</span>
-          <h2>Equinor wins on count, Aker BP on area</h2>
+          <h2>Equinor is almost everywhere</h2>
         </div>
         <div class="prose">
-          <p>Weight each licence by the company's equity share and the ranking changes. Aker BP ends up with about <span data-k="ak-net">9,150</span> km² net, far ahead of Equinor's <span data-k="eq-net">5,600</span> km², because it took large stakes in the big Barents and Norwegian Sea blocks.</p>
+          <p>Equinor operates 16 licences and is a partner in 19 more, so it is in nearly two of every three. Aker BP operates 12. Further down, the strategies differ: Wellesley operates every licence it holds, while ORLEN takes partner stakes only.</p>
         </div>
       </div>
       <div class="two-up">
@@ -307,13 +312,13 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
           <p class="fig-sub">Solid: as operator · Light: as partner</p>
           <div id="ch-count"></div>
         </figure>
-        <figure class="fig chart">
-          <p class="fig-title">Net acreage, km²</p>
-          <p class="fig-sub">Licence area × equity share at award</p>
-          <div id="ch-net"></div>
-        </figure>
+        <div class="facts">
+          <div><b class="num">35 of 56</b><span>licences include Equinor. Aker BP is in 22, and the state, through Petoro, in 20.</span></div>
+          <div><b class="num">20</b><span>licences carry a share for Petoro, which manages the state's direct financial interest (SDFI). It holds 10–40% and never operates.</span></div>
+          <div><b class="num">2</b><span>licences have a single owner. Both are Aker BP's, and both are among its long shots (1313 and 1308).</span></div>
+          <div><b class="num">5 of 5</b><span>Wellesley licences are Wellesley-operated. Four of them lie within 2 km of a field.</span></div>
+        </div>
       </div>
-      <p class="caption">Petoro holds the state's direct financial interest (SDFI) and never operates. The state took a 10–40% share in 20 of the licences.</p>
     </div>
   </section>
 
@@ -322,18 +327,17 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
       <div class="chapter-head">
         <div>
           <span class="kicker">2 · Near-field</span>
-          <h2>Most licences are within sight of a platform</h2>
+          <h2>Each operator's distance from home</h2>
         </div>
         <div class="prose">
-          <p class="pull"><span data-k="le25">47</span> of 56 licences lie within 25 km of a producing or approved field. Half are within <span data-k="med2">2.1</span> km.</p>
-          <p>The few remote licences are also the largest. The <span data-k="far-n">six</span> more than 50 km out hold <span data-k="far-share">48%</span> of the awarded area.</p>
+          <p class="pull"><span data-k="le1">21</span> of 56 licences lie within 1 km of a producing field. <span data-k="le25">47</span> are within 25 km.</p>
+          <p>Harbour is the purest near-field player: all four licences it operates are stratigraphic, and three touch or nearly touch a producing field. Aker BP is the opposite. It takes small extensions next to Alve and Ivar Aasen, and also operates three of the six licences more than 50 km from any field.</p>
         </div>
       </div>
       <figure class="fig chart">
-        <p class="fig-title">Distance from each licence to the nearest producing or approved field</p>
-        <p class="fig-sub">Dot area is proportional to licence area. The scale stretches distances under 5 km.</p>
-        <div class="legend" id="lg-dist"></div>
-        <div id="ch-dist" class="scroll-x"></div>
+        <p class="fig-title">Distance from each licence to the nearest producing or approved field, by operator</p>
+        <p class="fig-sub">One dot per licence. A ring marks a stratigraphic licence. The scale stretches distances under 5 km.</p>
+        <div id="ch-ops" class="scroll-x"></div>
         <figcaption>Measured edge to edge between licence and field outlines (ETRS89-LAEA). A distance of 0 means the licence touches a field outline; stratigraphic licences can sit directly above or below one.</figcaption>
       </figure>
     </div>
@@ -347,7 +351,8 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
           <h2>Most licences are handed back</h2>
         </div>
         <div class="prose">
-          <p>The predefined area has grown from <span class="num">84,700</span> km² in 2003 to <span class="num">458,100</span> km² in 2025. Most of what gets awarded is returned. Of the <span data-k="old-n">610</span> licences from rounds up to 2015, only <span data-k="old-act">12%</span> are still active. At that rate, six or seven of this year's 56 would still be active ten years from now.</p>
+          <p>Most APA licences are given back. Of the <span data-k="old-n">610</span> licences from rounds up to 2015, only <span data-k="old-act">12%</span> are still active. At that rate, six or seven of this year's 56 would still be active ten years from now.</p>
+          <p>The mix of seas barely moves from year to year. Interest in the Barents Sea peaked in APA 2018 and 2019, with 14 and 13 licences, and has not come back.</p>
         </div>
       </div>
       <div class="two-up">
@@ -358,10 +363,10 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
           <figcaption>Each round is announced the following January. Original licences only.</figcaption>
         </figure>
         <figure class="fig chart">
-          <p class="fig-title">Area awarded per round, km²</p>
-          <div class="legend"><span class="key"><span class="sw" style="background:var(--seq-3)"></span>Licence area at award</span></div>
+          <p class="fig-title">Licences per round by sea</p>
+          <div class="legend"><span class="key"><span class="sw" style="background:var(--seq-1)"></span>North Sea</span><span class="key"><span class="sw" style="background:var(--seq-2)"></span>Norwegian Sea</span><span class="key"><span class="sw" style="background:var(--seq-4)"></span>Barents Sea</span></div>
           <div id="ch-area"></div>
-          <figcaption>APA 2025 is the largest award by area since APA 2020.</figcaption>
+          <figcaption>Original licences only, as Sodir classifies them by main area.</figcaption>
         </figure>
       </div>
     </div>
@@ -468,7 +473,7 @@ Promise.all(["awards.json", "summary.json", "land.json", "blocks.json", "quadran
     const map = createMap({ A, land, blocks, quads, apa, existing, fields, seab, towns });
     document.getElementById("map-loading").remove();
     setupSteps(map);
-    const charts = () => { chartCompanies(summary); chartDistance(A); chartHistory(summary); chartPairs(A); };
+    const charts = () => { chartCompanies(summary); chartOperators(A); chartHistory(summary); chartPairs(A); };
     charts();
     let cw = innerWidth; addEventListener("resize", () => { if (Math.abs(innerWidth - cw) > 40) { cw = innerWidth; chartPairs(A); } });
     changeCards(summary, A);
@@ -484,6 +489,9 @@ Promise.all(["awards.json", "summary.json", "land.json", "blocks.json", "quadran
 function fillNumbers(A, S) {
   const set = (k, v) => document.querySelectorAll(`[data-k="${k}"]`).forEach(e => (e.textContent = v));
   set("n", S.n_licences); set("co", S.n_companies); set("km2", fmt(S.total_km2));
+  set("le1", A.filter(f => f.properties.dist_km <= 1).length);
+  set("eqn", A.filter(f => f.properties.partners.some(q => q.c === "Equinor")).length);
+  set("chg", new Set(S.later_changes.map(d => d.licence)).size);
   set("med", fmt1(S.median_dist) + " km"); set("med2", fmt1(S.median_dist)); set("le25", S.dist_le_25);
   const ar = Object.fromEntries(S.by_area.map(d => [d.area_name, d]));
   const med = a => d3.median(A.filter(f => f.properties.area_name === a), f => f.properties.km2);
@@ -491,11 +499,9 @@ function fillNumbers(A, S) {
   set("nws-n", ar["Norwegian Sea"].n); set("nws-km2", fmt(ar["Norwegian Sea"].km2));
   set("bs-n", ar["Barents Sea"].n); set("bs-km2", fmt(ar["Barents Sea"].km2));
   const C = Object.fromEntries(S.companies.map(c => [c.name, c]));
-  set("ak-net", fmt(Math.round(C["Aker BP"].net_km2 / 50) * 50)); set("eq-net", fmt(Math.round(C["Equinor"].net_km2 / 50) * 50));
   const far = A.filter(f => f.properties.dist_km > 50);
   const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
   set("far-n", words[far.length] || far.length);
-  set("far-share", Math.round(100 * d3.sum(far, f => f.properties.km2) / S.total_km2) + "%");
   const old = S.history.filter(h => h.year <= 2015);
   set("old-n", fmt(d3.sum(old, h => h.licences)));
   set("old-act", Math.round(100 * d3.sum(old, h => h.active) / d3.sum(old, h => h.licences)) + "%");
@@ -519,6 +525,7 @@ function licTip(p) {
     <div class="meta">${p.area_name} · ${fmt(p.km2)} km²${p.strat ? " · stratigraphic" : ""}<br>
     ${p.dist_km === 0 ? "Touches" : fmt1(p.dist_km) + " km from"} ${titleCase(p.nearest_field)}</div><table>${rows}</table>`;
 }
+const distText = p => (p.dist_km < 0.05 ? `touches ${titleCase(p.nearest_field)}` : `${fmt1(p.dist_km)} km to ${titleCase(p.nearest_field)}`);
 function titleCase(s) { return s.toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()); }
 
 /* ---------------- canvas map ---------------- */
@@ -543,9 +550,9 @@ function createMap({ A, land, blocks, quads, apa, existing, fields, seab, towns 
   const hitOrder = order.slice().reverse();
   const STEPS = {
     ncs: {},
-    ns: { bounds: [[1.6, 56.4], [8.0, 61.9]], area: "North Sea", call: ["1278", "1283"] },
-    nws: { bounds: [[0.6, 61.9], [15.0, 67.5]], area: "Norwegian Sea", call: ["1308", "1296", "1297", "1298"] },
-    bs: { bounds: [[17.5, 70.6], [33.0, 74.4]], area: "Barents Sea", call: ["1313"] },
+    ns: { bounds: [[1.6, 57.2], [6.4, 61.9]], area: "North Sea", call: ["1289 S", "1282", "1277 S"] },
+    nws: { bounds: [[0.6, 61.9], [15.0, 67.5]], area: "Norwegian Sea", call: ["1306", "211 FS", "1297", "1308"] },
+    bs: { bounds: [[17.5, 70.6], [33.0, 74.4]], area: "Barents Sea", call: ["1313", "1311"] },
     ops: { groups: ["Equinor", "Aker BP"] },
   };
   let W = 0, H = 0, dpr = 1, pad = { t: 0, b: 0 }, P = {}, C = {}, view = null, anim = null, raf = 0, labelA = 1, lastScale = "";
@@ -681,7 +688,7 @@ function createMap({ A, land, blocks, quads, apa, existing, fields, seab, towns 
     });
     const boxes = [];
     for (const c of cs) {
-      const p = c.f.properties; c.l1 = `PL ${p.name}`; c.l2 = `${p.operator} · ${fmt(p.km2)} km²`;
+      const p = c.f.properties; c.l1 = `PL ${p.name}`; c.l2 = `${p.operator} · ${distText(p)}`;
       ctx.font = `600 12px ${mono}`; const w1 = ctx.measureText(c.l1).width; ctx.font = `500 11px ${body}`; const w2 = ctx.measureText(c.l2).width;
       c.w = Math.max(w1, w2) + 6;
       if (c.side === 1 && c.lx + c.w > W - 8) c.lx = W - 8 - c.w;
@@ -891,54 +898,52 @@ function chartCompanies(S) {
       .on("mousemove", (ev, d) => tipAt(ev, `<h4>${d.name}</h4><table><tr><td>Licences</td><td>${d.licences}</td></tr><tr><td>Operator</td><td>${d.operated}</td></tr><tr><td>Mean equity</td><td>${fmt1(d.mean_pct)}%</td></tr><tr><td>Net acreage</td><td>${fmt(Math.round(d.net_km2))} km²</td></tr></table>`))
       .on("mouseleave", hideTip);
   }
-  {
-    const svg = svgIn("#ch-net", W, H).attr("aria-label", "Net acreage per company in square kilometres");
-    const x = d3.scaleLinear().domain([0, 10000]).range([M.l, W - M.r]);
-    const y = d3.scaleBand().domain(rows.map(d => d.name)).range([M.t, H - M.b]).padding(0.28);
-    svg.append("g").selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline").attr("x1", x).attr("x2", x).attr("y1", M.t).attr("y2", H - M.b);
-    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).ticks(4, "~s").tickSize(0).tickPadding(8)).call(g => g.select(".domain").remove());
-    const gr = svg.append("g").selectAll("g").data(rows).join("g").attr("transform", d => `translate(0,${y(d.name)})`);
-    gr.append("text").attr("class", "lbl").attr("x", M.l - 8).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").attr("text-anchor", "end").text(d => d.name);
-    gr.append("path").attr("d", d => hbarRound(M.l, 0, Math.max(1, x(d.net_km2) - M.l), y.bandwidth(), 3)).attr("fill", d => fillFor(d.name));
-    gr.append("text").attr("class", "val").attr("x", d => x(d.net_km2) + 6).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").text(d => fmt(Math.round(d.net_km2)));
-  }
 }
 
-/* ---------------- 2: distance beeswarm ---------------- */
-function chartDistance(A) {
-  const lg = d3.select("#lg-dist"); lg.selectAll("*").remove();
-  GROUPS.forEach(gp => lg.append("span").attr("class", "key").html(`<span class="sw bg-${cls(gp)}" style="border-radius:50%"></span>${gp === "Other" ? "Other operators" : gp}`));
-  const W = 1100, H = 340, M = { t: 26, r: 40, b: 40, l: 30 };
-  const el = d3.select("#ch-dist"); el.selectAll("*").remove();
-  const svg = el.append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", "Distance from each licence to the nearest field")
-    .style("width", "100%").style("min-width", "720px").style("height", "auto");
-  const x = d3.scaleSymlog().constant(2).domain([0, 110]).range([M.l, W - M.r]);
-  const r = d3.scaleSqrt().domain([0, 4500]).range([0, 30]);
+/* ---------------- 2: distance by operator ---------------- */
+function chartOperators(A) {
+  const ops = d3.groups(A.map(f => f.properties), p => p.operator)
+    .map(([op, ps]) => ({ op, ps, g: groupOf(op), med: d3.median(ps, p => p.dist_km) }))
+    .sort((a, b) => a.med - b.med || b.ps.length - a.ps.length);
+  const W = 1000, rowH = 34, M = { t: 34, r: 40, b: 36, l: 140 }, H = M.t + M.b + ops.length * rowH;
+  const el = d3.select("#ch-ops"); el.selectAll("*").remove();
+  const svg = el.append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img")
+    .attr("aria-label", "Distance from each licence to the nearest field, one row per operator")
+    .style("width", "100%").style("min-width", "680px").style("height", "auto");
+  const x = d3.scaleSymlog().constant(1).domain([0, 115]).range([M.l, W - M.r]);
   const ticks = [0, 1, 2, 5, 10, 25, 50, 100];
-  svg.append("g").selectAll("line").data(ticks).join("line").attr("class", "gridline").attr("x1", x).attr("x2", x).attr("y1", M.t).attr("y2", H - M.b);
-  svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).tickValues(ticks).tickFormat(d => d + " km").tickSize(0).tickPadding(10)).call(g => g.select(".domain").remove());
-  const cy = (H - M.b + M.t) / 2;
-  const nodes = A.map(f => ({ p: f.properties, x: x(f.properties.dist_km), y: cy, r: Math.max(3.5, r(f.properties.km2)) }));
-  const sim = d3.forceSimulation(nodes).force("x", d3.forceX(d => x(d.p.dist_km)).strength(0.9)).force("y", d3.forceY(cy).strength(0.06)).force("c", d3.forceCollide(d => d.r + 1.2)).stop();
-  for (let i = 0; i < 300; i++) sim.tick();
-  nodes.forEach(n => { n.y = Math.max(M.t + n.r, Math.min(H - M.b - n.r, n.y)); });
-  svg.append("line").attr("x1", x(25)).attr("x2", x(25)).attr("y1", M.t - 8).attr("y2", H - M.b).attr("stroke", "var(--ink-2)").attr("stroke-width", 1);
-  svg.append("text").attr("class", "note").attr("x", x(25) - 6).attr("y", M.t - 10).attr("text-anchor", "end").text("← 47 licences within 25 km");
-  svg.append("g").selectAll("circle").data(nodes.slice().sort((a, b) => b.r - a.r)).join("circle")
-    .attr("cx", d => d.x).attr("cy", d => d.y).attr("r", d => d.r).attr("class", d => `g-${cls(d.p.group)}`)
-    .attr("stroke", "var(--bg)").attr("stroke-width", 1.5).style("cursor", "pointer")
-    .on("mousemove", (ev, d) => tipAt(ev, licTip(d.p))).on("mouseleave", hideTip)
-    .on("click", (ev, d) => tipAt(ev, licTip(d.p)));
-  const placed = [], lab = nodes.filter(n => n.p.km2 >= 1200).sort((a, b) => b.p.km2 - a.p.km2), lg2 = svg.append("g");
-  lab.forEach(d => {
-    const t = `${d.p.name} · ${fmt(d.p.km2)} km²`, w = t.length * 6.3, h = 13;
-    const cands = [d.y - d.r - 6, d.y + d.r + 15, d.y - d.r - 22, d.y + d.r + 31];
-    const hit = yy => nodes.some(n => n !== d && Math.abs(n.x - d.x) < w / 2 + n.r && yy > n.y - n.r - 1 && yy - h < n.y + n.r + 1) || placed.some(b => Math.abs(b.x - d.x) < (b.w + w) / 2 + 4 && Math.abs(b.y - yy) < h + 2);
-    const yy = cands.find(c => c - h > 0 && c < H - M.b + 4 && !hit(c));
-    if (yy === undefined) return;
-    placed.push({ x: d.x, y: yy, w });
-    lg2.append("text").attr("class", "val").attr("x", d.x).attr("y", yy).attr("text-anchor", "middle").text(t);
+  svg.append("rect").attr("x", x(0) - 8).attr("width", x(1) - x(0) + 8).attr("y", M.t - 6).attr("height", H - M.b - M.t + 6).attr("fill", "var(--apa)");
+  svg.append("text").attr("class", "note").attr("x", x(0) - 4).attr("y", M.t - 14).text("Within 1 km: 21 licences");
+  svg.append("g").selectAll("line").data(ticks).join("line").attr("class", "gridline").attr("x1", x).attr("x2", x).attr("y1", M.t - 6).attr("y2", H - M.b);
+  svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`)
+    .call(d3.axisBottom(x).tickValues(ticks).tickFormat(d => d + " km").tickSize(0).tickPadding(10)).call(g => g.select(".domain").remove());
+  const row = svg.append("g").selectAll("g").data(ops).join("g").attr("transform", (d, i) => `translate(0,${M.t + i * rowH + rowH / 2})`);
+  row.append("line").attr("x1", M.l - 6).attr("x2", W - M.r).attr("stroke", "var(--rule)");
+  row.append("text").attr("class", "lbl").attr("x", M.l - 14).attr("dy", "0.35em").attr("text-anchor", "end").text(d => d.op);
+  row.append("text").attr("class", "note").attr("x", 0).attr("dy", "0.35em").text(d => d.ps.length);
+  row.append("line").attr("x1", d => x(d3.min(d.ps, p => p.dist_km))).attr("x2", d => x(d3.max(d.ps, p => p.dist_km)))
+    .attr("stroke", d => `var(${VAR[d.g]})`).attr("stroke-width", 2).attr("stroke-opacity", 0.5);
+  row.each(function (d) {
+    const placed = [];
+    const nodes = d.ps.slice().sort((a, b) => a.dist_km - b.dist_km).map(p => {
+      const cx = x(p.dist_km);
+      const dy = [0, -8, 8, -15, 15].find(o => !placed.some(q => Math.abs(q.cx - cx) < 11 && q.dy === o)) ?? 0;
+      placed.push({ cx, dy }); return { p, cx, dy };
+    });
+    const g = d3.select(this);
+    g.selectAll("circle").data(nodes).join("circle").attr("cx", n => n.cx).attr("cy", n => n.dy).attr("r", 5.5)
+      .attr("fill", n => (n.p.strat ? "var(--bg)" : `var(${VAR[d.g]})`))
+      .attr("stroke", n => (n.p.strat ? `var(${VAR[d.g]})` : "var(--bg)")).attr("stroke-width", n => (n.p.strat ? 2.2 : 1.2))
+      .style("cursor", "pointer").on("mousemove", (ev, n) => tipAt(ev, licTip(n.p))).on("mouseleave", hideTip).on("click", (ev, n) => tipAt(ev, licTip(n.p)));
+    g.selectAll("text.far").data(nodes.filter(n => n.p.dist_km > 50)).join("text").attr("class", "val far")
+      .attr("x", n => n.cx).attr("y", n => n.dy - 10).attr("text-anchor", "middle").text(n => n.p.name);
   });
+  svg.append("text").attr("class", "note").attr("x", 0).attr("y", M.t - 14).text("Operated");
+  const lg = svg.append("g").attr("transform", `translate(${W - M.r - 250},${M.t - 18})`);
+  lg.append("circle").attr("r", 5).attr("fill", "var(--ink-2)");
+  lg.append("text").attr("class", "note").attr("x", 10).attr("dy", "0.35em").text("licence");
+  lg.append("circle").attr("cx", 80).attr("r", 5).attr("fill", "var(--bg)").attr("stroke", "var(--ink-2)").attr("stroke-width", 2);
+  lg.append("text").attr("class", "note").attr("x", 90).attr("dy", "0.35em").text("stratigraphic licence");
 }
 
 /* ---------------- 3: history ---------------- */
@@ -962,19 +967,29 @@ function chartHistory(S) {
     [peak, last].forEach(d => svg.append("text").attr("class", "val").attr("x", x(d.year) + x.bandwidth() / 2).attr("y", y(d.licences) - 6).attr("text-anchor", "middle").text(d.licences));
   }
   {
-    const svg = svgIn("#ch-area", W, H).attr("aria-label", "Area awarded per APA round in square kilometres");
+    const svg = svgIn("#ch-area", W, H).attr("aria-label", "Licences per APA round by sea area");
+    const seas = ["North Sea", "Norwegian Sea", "Barents Sea"], col = { "North Sea": "var(--seq-1)", "Norwegian Sea": "var(--seq-2)", "Barents Sea": "var(--seq-4)" };
     const x = d3.scaleBand().domain(H0.map(d => d.year)).range([M.l, W - M.r]).padding(0.22);
-    const y = d3.scaleLinear().domain([0, 50000]).range([H - M.b, M.t]);
+    const y = d3.scaleLinear().domain([0, 90]).range([H - M.b, M.t]);
     svg.append("g").selectAll("line").data(y.ticks(3)).join("line").attr("class", "gridline").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y).attr("y2", y);
-    svg.append("g").attr("class", "axis").attr("transform", `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(3, "~s").tickSize(0).tickPadding(6)).call(g => g.select(".domain").remove());
+    svg.append("g").attr("class", "axis").attr("transform", `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(3).tickSize(0).tickPadding(6)).call(g => g.select(".domain").remove());
     svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).tickValues(xt).tickSize(0).tickPadding(8)).call(g => g.select(".domain").remove());
-    svg.append("g").selectAll("path").data(H0).join("path")
-      .attr("fill", d => (d.year === 2025 ? "var(--seq-4)" : "var(--seq-3)")).attr("fill-opacity", d => (d.year === 2025 ? 1 : 0.55))
-      .attr("d", d => vbarRound(x(d.year), x.bandwidth(), y(d.km2), y(0), 3))
-      .on("mousemove", (ev, d) => tipAt(ev, `<h4>APA ${d.year}</h4><table><tr><td>Area awarded</td><td>${fmt(d.km2)} km²</td></tr><tr><td>Licences</td><td>${d.licences}</td></tr></table>`))
+    const gr = svg.append("g").selectAll("g").data(H0).join("g");
+    gr.each(function (d) {
+      let acc = 0; const g = d3.select(this);
+      seas.forEach((sea, k) => {
+        const v = d[sea] || 0; if (!v) return;
+        const y0 = y(acc), y1 = y(acc + v) + (acc ? 0 : 0); acc += v;
+        const top = seas.slice(k + 1).every(s2 => !(d[s2] || 0));
+        if (top) g.append("path").attr("fill", col[sea]).attr("d", vbarRound(x(d.year), x.bandwidth(), y1, y0 - (k ? 2 : 0), 3));
+        else g.append("rect").attr("fill", col[sea]).attr("x", x(d.year)).attr("width", x.bandwidth()).attr("y", y1).attr("height", Math.max(0, y0 - y1 - (k ? 2 : 0)));
+      });
+    });
+    gr.append("rect").attr("x", d => x(d.year) - 2).attr("width", x.bandwidth() + 4).attr("y", M.t).attr("height", H - M.b - M.t).attr("fill", "transparent")
+      .on("mousemove", (ev, d) => tipAt(ev, `<h4>APA ${d.year}</h4><table>${seas.map(s2 => `<tr><td>${s2}</td><td>${d[s2] || 0}</td></tr>`).join("")}</table>`))
       .on("mouseleave", hideTip);
-    const pk = H0.reduce((a, b) => (b.km2 > a.km2 ? b : a)), last = H0[H0.length - 1];
-    [pk, last].forEach(d => svg.append("text").attr("class", "val").attr("x", x(d.year) + x.bandwidth() / 2).attr("y", y(d.km2) - 6).attr("text-anchor", "middle").text(fmt(Math.round(d.km2 / 100) * 100)));
+    const peak = H0.reduce((a, b) => ((b["Barents Sea"] || 0) > (a["Barents Sea"] || 0) ? b : a));
+    svg.append("text").attr("class", "val").attr("x", x(peak.year) + x.bandwidth() / 2).attr("y", y(peak.licences) - 6).attr("text-anchor", "middle").text(`${peak["Barents Sea"]} Barents`);
   }
 }
 
