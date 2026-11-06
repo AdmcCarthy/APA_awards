@@ -30,3 +30,16 @@ def test_round_coords_nested():
 def test_short_names():
     assert short("Vår Energi ASA") == "Vår Energi"
     assert short("Unknown Oil AS") == "Unknown Oil"
+
+
+def test_family_grouping():
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+    from companies import family
+
+    assert family("Statoil Petroleum AS") == "Equinor"
+    assert family("Norsk Hydro Produksjon AS") == "Equinor"
+    assert family("Det norske oljeselskap ASA (old)") == "Aker BP"
+    assert family("Lundin Energy Norway AS") == "Aker BP"
+    assert family("Wintershall Dea Norge AS") == "Harbour Energy"
+    assert family("Orlen Upstream Norway 2 AS") == "ORLEN"
+    assert family("Centrica Resources (Norge) AS") == "Centrica Resources"

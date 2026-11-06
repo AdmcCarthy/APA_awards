@@ -144,6 +144,18 @@ figcaption, .caption { font-size: 0.8rem; color: var(--muted); margin-top: 0.6re
 .g-Equinor { fill: var(--c-equinor); } .g-AkerBP { fill: var(--c-akerbp); } .g-VarEnergi { fill: var(--c-var); }
 .g-DNO { fill: var(--c-dno); } .g-HarbourEnergy { fill: var(--c-harbour); } .g-Wellesley { fill: var(--c-wellesley); } .g-Other { fill: var(--c-other); }
 
+/* club chapter */
+.chapter-head.sub { margin: 2.6rem 0 1.2rem; }
+.h3big { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.nets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 2rem; }
+.net { margin: 0; min-width: 0; border-top: 1px solid var(--rule); padding-top: 0.6rem; }
+.net-cap { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-size: 0.82rem; color: var(--ink-2); margin: 0 !important; max-width: none !important; }
+.net-cap b { font-family: var(--f-display); font-size: 1.25rem; color: var(--ink); font-weight: 600; }
+.net svg { display: block; width: 100%; height: auto; }
+.net .lnk { stroke: var(--ink-2); transition: stroke-opacity 0.15s; }
+.net .nd { transition: opacity 0.15s; cursor: pointer; }
+.net text { font-family: var(--f-body); font-size: 11px; fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+@media (max-width: 860px) { .nets { grid-template-columns: minmax(0, 1fr); } }
 /* fact list */
 .facts { display: grid; gap: 0; align-content: start; border-top: 2px solid var(--ink); }
 .facts div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; padding-block: 0.9rem; border-bottom: 1px solid var(--rule); align-items: baseline; }
@@ -228,14 +240,14 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
     <div>
       <span class="kicker">Norwegian shelf · APA 2025 · granted 20 March 2026</span>
       <h1>Close to home</h1>
-      <p class="dek">Norway's latest licensing round was about filling gaps. Of the 56 new licences, 21 lie within a kilometre of a producing field. Only a handful are genuine long shots, and most of those belong to one company.</p>
+      <p class="dek">Norway's latest licensing round was about filling gaps, and it was played by a shrinking club. Of the 56 new licences, 21 lie within a kilometre of a producing field. Just 19 companies took part, the fewest since the first round in 2003.</p>
       <p class="byline">A data story built from Sodir FactMaps, retrieved 6 November 2026.</p>
     </div>
     <div class="ledger">
-      <div><b class="num" data-k="n">56</b><span>production licences, 19 companies</span></div>
+      <div><b class="num" data-k="n">56</b><span>production licences granted</span></div>
       <div><b class="num" data-k="le1">21</b><span>within 1 km of a producing field</span></div>
-      <div><b class="num" data-k="eqn">35</b><span>include Equinor as operator or partner</span></div>
-      <div><b class="num" data-k="chg">4</b><span>changed hands within eight months</span></div>
+      <div><b class="num">19</b><span>companies, down from 49 in APA 2013</span></div>
+      <div><b class="num">63%</b><span>include Equinor, up from 15% in APA 2013</span></div>
     </div>
   </div>
 </header>
@@ -347,7 +359,7 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
     <div class="wrap">
       <div class="chapter-head">
         <div>
-          <span class="kicker">3 · Two decades of APA</span>
+          <span class="kicker">4 · Two decades of APA</span>
           <h2>Most licences are handed back</h2>
         </div>
         <div class="prose">
@@ -372,19 +384,60 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
     </div>
   </section>
 
-  <section class="chapter">
+  <section class="chapter club">
     <div class="wrap">
       <div class="chapter-head">
         <div>
-          <span class="kicker">4 · Partnerships</span>
-          <h2>Who shares licences with whom</h2>
+          <span class="kicker">3 · From crowd to club</span>
+          <h2>Fewer companies, tighter partnerships</h2>
         </div>
         <div class="prose">
-          <p>Equinor shares at least one licence with every other company in the matrix. Its closest partners are Petoro (13) and Vår Energi (11). Aker BP's are DNO and Equinor (9 each). Some smaller partners stick close to one company: Aker BP is in all five of ORLEN's licences.</p>
+          <p>Twenty-three years of licence line-ups show the APA club getting smaller and more tightly knit. In APA 2013, 49 companies won acreage. This year 19 did, the fewest since the first round. Mergers explain part of it: Aker BP, Vår Energi and Harbour have each absorbed several earlier APA players.</p>
         </div>
       </div>
+
+      <div class="two-up">
+        <figure class="fig chart">
+          <p class="fig-title">Companies winning APA licences, by round</p>
+          <div class="legend"><span class="key"><span class="sw" style="background:var(--ink)"></span>All companies</span><span class="key"><span class="sw" style="background:var(--seq-3)"></span>Operators</span></div>
+          <div id="ch-crowd"></div>
+          <figcaption>Legal companies as registered at award. Solo licences (one owner, no partners) were common in the early rounds but disappeared after APA 2010. Aker BP's two this year are the first since then.</figcaption>
+        </figure>
+        <figure class="fig chart">
+          <p class="fig-title">Share of each round's licences that include…</p>
+          <div class="legend" id="lg-shares"></div>
+          <div id="ch-shares"></div>
+          <figcaption>Company families as they are today: Equinor includes Statoil and Hydro; Aker BP includes Det norske, BP Norge and Lundin. Petoro holds the state's direct financial interest.</figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter-head sub">
+        <div><h3 class="h3big">Equinor's U-turn</h3></div>
+        <div class="prose"><p>In the first rounds Statoil and Hydro were together in more than half of the licences. As newcomers poured in, Equinor's share fell to 15% in APA 2013. It has climbed back to 63%, level with its 2023 high. The state's stake has grown too: Petoro is in 36% of this year's licences, the highest share on record.</p></div>
+      </div>
+
       <figure class="fig chart">
-        <p class="fig-title">Licences shared by each pair of companies</p>
+        <p class="fig-title">Who shared licences with whom, in four rounds</p>
+        <p class="fig-sub">Each dot is a company group, sized by licences won; a line joins two groups that share at least one licence. Hover or tap a dot to see its partners.</p>
+        <div class="nets" id="ch-nets"></div>
+        <figcaption>Companies are grouped by today's owner so the same dot can be followed across rounds. Featured operators use their colours, and Petoro is shown in dark grey.</figcaption>
+      </figure>
+
+      <div class="chapter-head sub">
+        <div><h3 class="h3big">From mesh to hub</h3></div>
+        <div class="prose"><p>In 2013 the network was a broad mesh of 44 company groups with 161 distinct partnerships. By 2025 it has shrunk to 19 groups and 53 partnerships. Equinor, Aker BP and Petoro now sit at its centre: 51 of this year's 56 licences include at least one of the three.</p></div>
+      </div>
+
+      <figure class="fig chart">
+        <p class="fig-title">The longest-running partnerships: licences shared per round</p>
+        <p class="fig-sub">The 14 company pairs with the most shared APA licences since 2003. Darker means more licences in that round.</p>
+        <div class="legend" id="lg-pairtime"></div>
+        <div id="ch-pairtime" class="scroll-x"></div>
+        <figcaption>Equinor and Petoro have shared licences in every round since 2004. Aker BP and DNO hardly partnered before 2017, but have shared 51 licences since. Centrica and DNO, a regular pairing until 2015, have not shared a licence since.</figcaption>
+      </figure>
+
+      <figure class="fig chart" style="margin-top:2.5rem">
+        <p class="fig-title">Zoom in on 2025: licences shared by each pair</p>
         <p class="fig-sub">All companies with two or more licences. Hover or tap a cell to see which licences.</p>
         <div class="legend" id="lg-pairs"></div>
         <div id="ch-pairs" class="scroll-x"></div>
@@ -426,7 +479,7 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
             <li>All layers come from <a href="https://factmaps.sodir.no/" target="_blank" rel="noopener">Sodir FactMaps</a>, retrieved 6 November 2026: licences, licensee history, blocks, fields, the predefined area and the basemap. Sodir codes APA rounds <span class="mono">TFO&lt;year&gt;</span>; this page covers <span class="mono">TFO2025</span>.</li>
             <li>The ministry announced 57 offers on 13 January 2026, but Sodir lists 56 licences, all granted on 20 March 2026. Because of this, counts here can be one lower than in the press release. For example, Equinor operates 16 licences here and 17 in the release.</li>
             <li>Partners and shares are the line-up on the grant date. Changes after that appear only in section 5.</li>
-            <li>Areas are Sodir's area at award, in km². Net acreage is area × equity share.</li>
+            <li>The long-run partnership charts group companies by today's owner: Equinor includes Statoil and Hydro; Aker BP includes Det norske, BP Norge and Lundin; Vår Energi includes Eni Norge, Point Resources, ExxonMobil and Neptune; Harbour includes Wintershall Dea and its predecessors; DNO includes Faroe Petroleum; ORLEN includes PGNiG and LOTOS. Company counts use legal companies as they were at award. The grouping is my reading of public merger history and should be checked before formal use.</li>
           </ul>
         </div>
         <div class="prose">
@@ -464,8 +517,8 @@ const narrowMQ = window.matchMedia("(max-width: 860px)");
 
 const load = f => fetch("data/" + f).then(r => { if (!r.ok) throw new Error(f + " " + r.status); return r.json(); });
 Promise.all(["awards.json", "summary.json", "land.json", "blocks.json", "quadrants.json", "apa_area.json",
-  "licences_existing.json", "fields.json", "sea_boundaries.json", "towns.json"].map(load))
-  .then(([awards, summary, land, blocks, quads, apa, existing, fields, seab, towns]) => {
+  "licences_existing.json", "fields.json", "sea_boundaries.json", "towns.json", "partners.json"].map(load))
+  .then(([awards, summary, land, blocks, quads, apa, existing, fields, seab, towns, partners]) => {
     [land, blocks, quads, apa, existing, fields].forEach(fc => { fc.features = fc.features.filter(f => d3.geoArea(f) < 0.5); });
     const A = awards.features;
     A.forEach(f => { f.properties.group = groupOf(f.properties.operator); });
@@ -473,9 +526,9 @@ Promise.all(["awards.json", "summary.json", "land.json", "blocks.json", "quadran
     const map = createMap({ A, land, blocks, quads, apa, existing, fields, seab, towns });
     document.getElementById("map-loading").remove();
     setupSteps(map);
-    const charts = () => { chartCompanies(summary); chartOperators(A); chartHistory(summary); chartPairs(A); };
+    const charts = () => { chartCompanies(summary); chartOperators(A); chartHistory(summary); chartPairs(A); chartCrowd(partners); chartShares(partners); chartNetworks(partners); chartPairTimeline(partners); };
     charts();
-    let cw = innerWidth; addEventListener("resize", () => { if (Math.abs(innerWidth - cw) > 40) { cw = innerWidth; chartPairs(A); } });
+    let cw = innerWidth; addEventListener("resize", () => { if (Math.abs(innerWidth - cw) > 40) { cw = innerWidth; charts(); } });
     changeCards(summary, A);
     tableAll(A, map);
   })
@@ -876,11 +929,12 @@ function hbarRound(x, y, w, h, r) {
 }
 const vbarRound = (x0, w, yt, yb, r) => { r = Math.min(r, w / 2, Math.max(0, yb - yt)); return `M${x0},${yb}V${yt + r}a${r},${r} 0 0 1 ${r},${-r}h${w - 2 * r}a${r},${r} 0 0 1 ${r},${r}V${yb}z`; };
 const fillFor = n => `var(${VAR[groupOf(n)]})`;
+const wOf = sel => Math.max(330, Math.min(560, (document.querySelector(sel) || {}).clientWidth || 560));
 
 /* ---------------- 1: companies ---------------- */
 function chartCompanies(S) {
   const rows = S.companies.slice();
-  const W = 560, rowH = 22, M = { t: 6, r: 70, b: 26, l: 118 };
+  const W = wOf("#ch-count"), rowH = 22, M = { t: 6, r: 70, b: 26, l: 118 };
   const H = M.t + M.b + rows.length * rowH;
   {
     const svg = svgIn("#ch-count", W, H).attr("aria-label", "Licences per company, split into operated and partner-only");
@@ -948,7 +1002,7 @@ function chartOperators(A) {
 
 /* ---------------- 3: history ---------------- */
 function chartHistory(S) {
-  const H0 = S.history, W = 560, H = 280, M = { t: 16, r: 10, b: 30, l: 40 };
+  const H0 = S.history, W = wOf("#ch-hist"), H = 280, M = { t: 16, r: 10, b: 30, l: 40 };
   const xt = H0.map(d => d.year).filter(v => v % 5 === 0 || v === 2025);
   {
     const svg = svgIn("#ch-hist", W, H).attr("aria-label", "Licences per APA round, split into active and relinquished");
@@ -1038,6 +1092,125 @@ function chartPairs(A) {
   cg.style("cursor", "pointer").on("mousemove", show).on("click", show).on("mouseleave", () => { hl(null); hideTip(); });
 }
 
+
+/* ---------------- 3: crowd to club ---------------- */
+const famColor = f => (FEATURED.has(f) ? `var(${VAR[f]})` : f === "Petoro" ? "var(--ink-2)" : "var(--c-other)");
+function lineChart(sel, { data, series, yMax, yFmt, label, annotate }) {
+  const W = wOf(sel), H = 290, M = { t: 18, r: 92, b: 30, l: 40 };
+  const svg = svgIn(sel, W, H).attr("aria-label", label);
+  const x = d3.scaleLinear().domain(d3.extent(data, d => d.year)).range([M.l, W - M.r]);
+  const y = d3.scaleLinear().domain([0, yMax]).range([H - M.b, M.t]);
+  svg.append("g").selectAll("line").data(y.ticks(4)).join("line").attr("class", "gridline").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y).attr("y2", y);
+  svg.append("g").attr("class", "axis").attr("transform", `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(4).tickFormat(yFmt).tickSize(0).tickPadding(6)).call(g => g.select(".domain").remove());
+  svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).tickValues([2003, 2008, 2013, 2018, 2025]).tickFormat(d3.format("d")).tickSize(0).tickPadding(8)).call(g => g.select(".domain").remove());
+  const ends = [];
+  series.forEach(se => {
+    const line = d3.line().x(d => x(d.year)).y(d => y(se.v(d))).curve(d3.curveMonotoneX);
+    if (se.area) svg.append("path").attr("d", d3.area().x(d => x(d.year)).y0(y(0)).y1(d => y(se.v(d))).curve(d3.curveMonotoneX)(data)).attr("fill", se.color).attr("fill-opacity", 0.08);
+    svg.append("path").attr("d", line(data)).attr("fill", "none").attr("stroke", se.color).attr("stroke-width", se.w || 2).attr("stroke-linejoin", "round");
+    const last = data[data.length - 1];
+    svg.append("circle").attr("cx", x(last.year)).attr("cy", y(se.v(last))).attr("r", 3.5).attr("fill", se.color).attr("stroke", "var(--bg)").attr("stroke-width", 1.5);
+    ends.push({ y: y(se.v(last)), t: `${se.name} ${yFmt(se.v(last))}` });
+  });
+  ends.sort((a, b) => a.y - b.y); for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 14) ends[i].y = ends[i - 1].y + 14;
+  ends.forEach(e => svg.append("text").attr("class", "val").attr("x", W - M.r + 8).attr("y", e.y).attr("dy", "0.35em").text(e.t));
+  (annotate || []).forEach(a => {
+    const d = data.find(r => r.year === a.year), cx = x(a.year), cy = y(a.v(d));
+    svg.append("circle").attr("cx", cx).attr("cy", cy).attr("r", 3.5).attr("fill", "var(--bg)").attr("stroke", "var(--ink)").attr("stroke-width", 1.5);
+    svg.append("text").attr("class", "note").attr("x", cx + (a.dx || 0)).attr("y", cy + (a.dy || -10)).attr("text-anchor", a.anchor || "middle").text(a.text);
+  });
+  // hover: vertical guide + values
+  const guide = svg.append("line").attr("y1", M.t).attr("y2", H - M.b).attr("stroke", "var(--ink-2)").attr("stroke-width", 1).attr("opacity", 0);
+  svg.append("rect").attr("x", M.l).attr("y", M.t).attr("width", W - M.r - M.l).attr("height", H - M.b - M.t).attr("fill", "transparent")
+    .on("mousemove", ev => {
+      const [mx] = d3.pointer(ev), yr = Math.round(x.invert(mx)), d = data.find(r => r.year === yr); if (!d) return;
+      guide.attr("x1", x(yr)).attr("x2", x(yr)).attr("opacity", 0.5);
+      tipAt(ev, `<h4>APA ${yr}</h4><table>${series.map(se => `<tr><td>${se.name}</td><td>${yFmt(se.v(d))}</td></tr>`).join("")}</table>`);
+    })
+    .on("mouseleave", () => { guide.attr("opacity", 0); hideTip(); });
+}
+function chartCrowd(P) {
+  lineChart("#ch-crowd", {
+    data: P.years, yMax: 55, yFmt: d3.format("d"), label: "Number of companies and operators winning APA licences per round",
+    series: [{ name: "Companies", v: d => d.companies, color: "var(--ink)", area: true, w: 2.2 }, { name: "Operators", v: d => d.operators, color: "var(--seq-3)" }],
+    annotate: [{ year: 2013, v: d => d.companies, text: "49 in APA 2013", dy: -10 }, { year: 2003, v: d => d.companies, text: "14 in 2003", dy: 16, dx: 2, anchor: "start" }],
+  });
+}
+function chartShares(P) {
+  const S = [{ name: "Equinor", c: famColor("Equinor") }, { name: "Aker BP", c: famColor("Aker BP") }, { name: "Petoro", c: "var(--ink-2)" }];
+  const lg = d3.select("#lg-shares"); lg.selectAll("*").remove();
+  S.forEach(s2 => lg.append("span").attr("class", "key").html(`<span class="sw" style="background:${s2.c}"></span>${s2.name}`));
+  lineChart("#ch-shares", {
+    data: P.years, yMax: 0.7, yFmt: d3.format(".0%"), label: "Share of licences per round that include Equinor, Aker BP or Petoro",
+    series: S.map(s2 => ({ name: s2.name, v: d => d.share[s2.name], color: s2.c, w: s2.name === "Equinor" ? 2.6 : 1.8 })),
+    annotate: [{ year: 2013, v: d => d.share.Equinor, text: "15%", dy: 16 }],
+  });
+}
+function chartNetworks(P) {
+  const host = document.getElementById("ch-nets"); host.innerHTML = "";
+  const ANCH = { "Equinor": [-0.22, 0.02], "Aker BP": [0.24, 0.02], "Petoro": [0.0, -0.3], "Vår Energi": [-0.2, 0.32], "DNO": [0.3, 0.3], "Harbour Energy": [0.05, 0.28] };
+  const r = d3.scaleSqrt().domain([1, 45]).range([3, 17]);
+  Object.entries(P.networks).forEach(([yr, N]) => {
+    const fig = document.createElement("figure"); fig.className = "net";
+    fig.innerHTML = `<figcaption class="net-cap"><b>APA ${yr}</b><span>${N.nodes.length} groups · ${N.edges.length} partnerships · ${N.licences} licences</span></figcaption>`;
+    host.appendChild(fig);
+    const W = 460, H = 330, pad = 26;
+    const nodes = N.nodes.map(d => ({ ...d })), links = N.edges.map(e => ({ source: e.a, target: e.b, n: e.n }));
+    const sim = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(l => 34 + 40 / Math.sqrt(l.n)).strength(l => Math.min(0.9, 0.06 * l.n + 0.03)))
+      .force("charge", d3.forceManyBody().strength(-70))
+      .force("collide", d3.forceCollide(d => r(d.n) + 2.5))
+      .force("x", d3.forceX(d => (ANCH[d.id] ? ANCH[d.id][0] * W : 0)).strength(d => (ANCH[d.id] ? 0.3 : 0.05)))
+      .force("y", d3.forceY(d => (ANCH[d.id] ? ANCH[d.id][1] * H : 0)).strength(d => (ANCH[d.id] ? 0.3 : 0.08))).stop();
+    for (let i = 0; i < 450; i++) sim.tick();
+    const xe = d3.extent(nodes, d => d.x), ye = d3.extent(nodes, d => d.y);
+    const k = Math.min((W - 2 * pad) / (xe[1] - xe[0] || 1), (H - 2 * pad) / (ye[1] - ye[0] || 1), 1.6);
+    const cx = (xe[0] + xe[1]) / 2, cy = (ye[0] + ye[1]) / 2;
+    nodes.forEach(d => { d.px = W / 2 + (d.x - cx) * k; d.py = H / 2 + (d.y - cy) * k; });
+    const svg = d3.select(fig).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img").attr("aria-label", `Partnership network for APA ${yr}`);
+    const maxN = d3.max(links, l => l.n);
+    const lk = svg.append("g").selectAll("line").data(links).join("line").attr("class", "lnk")
+      .attr("x1", l => l.source.px).attr("y1", l => l.source.py).attr("x2", l => l.target.px).attr("y2", l => l.target.py)
+      .attr("stroke-width", l => 0.6 + 3.2 * l.n / maxN).attr("stroke-opacity", l => 0.12 + 0.5 * l.n / maxN);
+    const nd = svg.append("g").selectAll("circle").data(nodes).join("circle").attr("class", "nd")
+      .attr("cx", d => d.px).attr("cy", d => d.py).attr("r", d => r(d.n)).attr("fill", d => famColor(d.id)).attr("stroke", "var(--bg)").attr("stroke-width", 1.5);
+    const top = new Set(nodes.slice().sort((a, b) => b.n - a.n).slice(0, 5).map(d => d.id));
+    const lb = svg.append("g").selectAll("text").data(nodes).join("text").attr("x", d => d.px).attr("y", d => d.py + r(d.n) + 11).attr("text-anchor", "middle")
+      .attr("opacity", d => (top.has(d.id) ? 1 : 0)).text(d => d.id);
+    const nb = id => new Set(links.filter(l => l.source.id === id || l.target.id === id).flatMap(l => [l.source.id, l.target.id]));
+    const on = (ev, d) => {
+      const s2 = nb(d.id); s2.add(d.id);
+      nd.attr("opacity", x => (s2.has(x.id) ? 1 : 0.15)); lb.attr("opacity", x => (s2.has(x.id) ? 1 : 0));
+      lk.attr("stroke-opacity", l => (l.source.id === d.id || l.target.id === d.id ? 0.85 : 0.04));
+      const ps = links.filter(l => l.source.id === d.id || l.target.id === d.id).map(l => ({ c: l.source.id === d.id ? l.target.id : l.source.id, n: l.n })).sort((a, b) => b.n - a.n);
+      tipAt(ev, `<h4><span class="sw" style="background:${famColor(d.id)}"></span>${d.id}</h4><div class="meta">APA ${yr}: ${d.n} licence${d.n === 1 ? "" : "s"}, ${d.op} as operator</div>${ps.length ? `<table>${ps.slice(0, 8).map(p => `<tr><td>${p.c}</td><td>${p.n}</td></tr>`).join("")}</table>${ps.length > 8 ? `<div class="meta">+${ps.length - 8} more</div>` : ""}` : "No partners"}`);
+    };
+    const off = () => { nd.attr("opacity", 1); lb.attr("opacity", d => (top.has(d.id) ? 1 : 0)); lk.attr("stroke-opacity", l => 0.12 + 0.5 * l.n / maxN); hideTip(); };
+    nd.on("mousemove", on).on("click", on).on("mouseleave", off);
+  });
+}
+function chartPairTimeline(P) {
+  const host = document.getElementById("ch-pairtime"), yrs = P.pairs.years, rows = P.pairs.rows;
+  const avail = host.clientWidth || 900, small = avail < 600;
+  const L = small ? 190 : 230, cw = Math.max(small ? 17 : 20, Math.min(34, Math.floor((avail - L - 50) / yrs.length))), rh = small ? 22 : 26, T = 22;
+  const W = L + cw * yrs.length + 50, H = T + rh * rows.length + 6;
+  const steps = ["var(--seq-1)", "var(--seq-2)", "var(--seq-3)", "var(--seq-4)"], bin = v => (v <= 2 ? 0 : v <= 5 ? 1 : v <= 9 ? 2 : 3);
+  const lg = d3.select("#lg-pairtime"); lg.selectAll("*").remove();
+  ["1–2", "3–5", "6–9", "10+"].forEach((t, i) => lg.append("span").attr("class", "key").html(`<span class="sw" style="background:${steps[i]}"></span>${t}`));
+  const el = d3.select(host); el.selectAll("*").remove();
+  const svg = el.append("svg").attr("width", W).attr("height", H).attr("role", "img").attr("aria-label", "Shared APA licences per round for the 14 most frequent company pairs");
+  yrs.forEach((y, i) => { if (y % 5 === 0 || y === 2003 || y === 2025) svg.append("text").attr("class", "note").attr("x", L + i * cw + cw / 2).attr("y", 12).attr("text-anchor", "middle").text(y); });
+  const g = svg.append("g").selectAll("g").data(rows).join("g").attr("transform", (d, i) => `translate(0,${T + i * rh})`);
+  g.append("text").attr("class", "lbl").attr("x", L - 10).attr("y", rh / 2).attr("dy", "0.35em").attr("text-anchor", "end").attr("font-size", small ? 11 : 12).text(d => `${d.a} + ${d.b}`);
+  g.append("text").attr("class", "note").attr("x", L + cw * yrs.length + 8).attr("y", rh / 2).attr("dy", "0.35em").text(d => d.total);
+  g.each(function (d) {
+    d3.select(this).selectAll("rect").data(d.counts.map((v, i) => ({ v, i, y: yrs[i], d }))).join("rect")
+      .attr("x", c => L + c.i * cw + 1).attr("y", 2).attr("width", cw - 2).attr("height", rh - 4).attr("rx", 2)
+      .attr("fill", c => (c.v ? steps[bin(c.v)] : "transparent")).attr("stroke", c => (c.v ? "none" : "var(--rule)")).attr("stroke-opacity", 0.6)
+      .on("mousemove", (ev, c) => tipAt(ev, `<h4>${c.d.a} + ${c.d.b}</h4><div class="meta">APA ${c.y}: ${c.v} shared licence${c.v === 1 ? "" : "s"}</div>`)).on("mouseleave", hideTip);
+  });
+  svg.append("text").attr("class", "note").attr("x", L + cw * yrs.length + 8).attr("y", 12).text("Total");
+}
 /* ---------------- 5: changes ---------------- */
 function changeCards(S, A) {
   const byLic = d3.group(S.later_changes, d => d.licence), P = Object.fromEntries(A.map(f => [f.properties.name, f.properties]));

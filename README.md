@@ -11,6 +11,7 @@ The page is in `web/index.html`, a static D3 page that reads `web/data/*.json`.
 pip install -r requirements.txt
 python scripts/fetch_sodir.py      # Sodir FactMaps REST -> data/raw/*.geojson (~50 MB, git-ignored)
 python scripts/build_data.py       # -> web/data/*.json (simplified, WGS84, d3-oriented)
+python scripts/build_partners.py   # -> web/data/partners.json (line-ups at award, all APA rounds 2003-2025)
 python -m pytest -q
 cd web && python -m http.server    # open http://localhost:8000
 ```
@@ -21,6 +22,7 @@ cd web && python -m http.server    # open http://localhost:8000
   The APA 2026 round itself closed on 1 Sep 2026 and is due to be awarded in early 2027.
 - Sodir lists 56 licences under TFO2025; the ministry announced 57 offers. Counts follow Sodir.
 - Partners and equity shares are the line-up at grant.
+- Long-run partnership charts group companies by today's owner (`scripts/companies.py`); the mapping follows public merger history and is listed in the page's methods.
 - Geometry is ED50 (Sodir native), requested as WGS84. Distances are edge to edge in ETRS89-LAEA (EPSG:3035), in km.
 - Operator colours are brand-derived hues re-stepped to pass CVD checks. They are not official brand values.
 
