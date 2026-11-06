@@ -1,0 +1,800 @@
+{
+ "round": "TFO2025",
+ "announced": "2026-01-13",
+ "granted": "2026-03-20",
+ "n_licences": 56,
+ "n_offered_announced": 57,
+ "n_companies": 19,
+ "n_operators": 13,
+ "total_km2": 23962,
+ "median_km2": 94.5,
+ "by_area": [
+  {
+   "area_name": "Barents Sea",
+   "n": 5,
+   "km2": 5011
+  },
+  {
+   "area_name": "North Sea",
+   "n": 30,
+   "km2": 7595
+  },
+  {
+   "area_name": "Norwegian Sea",
+   "n": 21,
+   "km2": 11356
+  }
+ ],
+ "n_additional": 18,
+ "n_strat": 13,
+ "n_changed_since": 4,
+ "dist_le_25": 47,
+ "dist_le_50": 50,
+ "median_dist": 2.1,
+ "companies": [
+  {
+   "name": "Equinor",
+   "licences": 35,
+   "operated": 16,
+   "net_km2": 5614.9,
+   "mean_pct": 42.4,
+   "featured": true
+  },
+  {
+   "name": "Aker BP",
+   "licences": 22,
+   "operated": 12,
+   "net_km2": 9154.3,
+   "mean_pct": 48.3,
+   "featured": true
+  },
+  {
+   "name": "Petoro",
+   "licences": 20,
+   "operated": 0,
+   "net_km2": 2254.6,
+   "mean_pct": 24.0,
+   "featured": false
+  },
+  {
+   "name": "DNO",
+   "licences": 16,
+   "operated": 4,
+   "net_km2": 1550.2,
+   "mean_pct": 30.0,
+   "featured": true
+  },
+  {
+   "name": "Vår Energi",
+   "licences": 14,
+   "operated": 7,
+   "net_km2": 1586.8,
+   "mean_pct": 40.4,
+   "featured": true
+  },
+  {
+   "name": "Harbour Energy",
+   "licences": 9,
+   "operated": 4,
+   "net_km2": 507.3,
+   "mean_pct": 36.2,
+   "featured": true
+  },
+  {
+   "name": "Wellesley",
+   "licences": 5,
+   "operated": 5,
+   "net_km2": 148.7,
+   "mean_pct": 52.0,
+   "featured": true
+  },
+  {
+   "name": "INPEX Idemitsu",
+   "licences": 5,
+   "operated": 1,
+   "net_km2": 979.8,
+   "mean_pct": 34.0,
+   "featured": false
+  },
+  {
+   "name": "ORLEN",
+   "licences": 5,
+   "operated": 0,
+   "net_km2": 94.4,
+   "mean_pct": 16.1,
+   "featured": false
+  },
+  {
+   "name": "OMV",
+   "licences": 4,
+   "operated": 2,
+   "net_km2": 698.0,
+   "mean_pct": 37.5,
+   "featured": false
+  },
+  {
+   "name": "OKEA",
+   "licences": 3,
+   "operated": 1,
+   "net_km2": 181.0,
+   "mean_pct": 36.7,
+   "featured": false
+  },
+  {
+   "name": "Concedo",
+   "licences": 2,
+   "operated": 1,
+   "net_km2": 117.1,
+   "mean_pct": 35.0,
+   "featured": false
+  },
+  {
+   "name": "Japex",
+   "licences": 2,
+   "operated": 0,
+   "net_km2": 269.4,
+   "mean_pct": 30.0,
+   "featured": false
+  },
+  {
+   "name": "Source Energy",
+   "licences": 2,
+   "operated": 0,
+   "net_km2": 20.8,
+   "mean_pct": 15.0,
+   "featured": false
+  },
+  {
+   "name": "ConocoPhillips",
+   "licences": 1,
+   "operated": 1,
+   "net_km2": 2.4,
+   "mean_pct": 80.0,
+   "featured": false
+  },
+  {
+   "name": "Petrolia NOCO",
+   "licences": 1,
+   "operated": 1,
+   "net_km2": 124.6,
+   "mean_pct": 70.0,
+   "featured": false
+  },
+  {
+   "name": "Repsol",
+   "licences": 1,
+   "operated": 1,
+   "net_km2": 21.7,
+   "mean_pct": 70.0,
+   "featured": false
+  },
+  {
+   "name": "Pandion",
+   "licences": 1,
+   "operated": 0,
+   "net_km2": 100.6,
+   "mean_pct": 20.0,
+   "featured": false
+  },
+  {
+   "name": "TotalEnergies",
+   "licences": 1,
+   "operated": 0,
+   "net_km2": 535.5,
+   "mean_pct": 30.0,
+   "featured": false
+  }
+ ],
+ "pairs": [
+  {
+   "a": "Equinor",
+   "b": "Petoro",
+   "n": 13
+  },
+  {
+   "a": "Equinor",
+   "b": "Vår Energi",
+   "n": 11
+  },
+  {
+   "a": "Aker BP",
+   "b": "DNO",
+   "n": 9
+  },
+  {
+   "a": "Aker BP",
+   "b": "Equinor",
+   "n": 9
+  },
+  {
+   "a": "Aker BP",
+   "b": "Petoro",
+   "n": 7
+  },
+  {
+   "a": "DNO",
+   "b": "Equinor",
+   "n": 7
+  },
+  {
+   "a": "Harbour Energy",
+   "b": "Petoro",
+   "n": 5
+  },
+  {
+   "a": "Aker BP",
+   "b": "ORLEN",
+   "n": 5
+  },
+  {
+   "a": "Aker BP",
+   "b": "Harbour Energy",
+   "n": 5
+  },
+  {
+   "a": "Petoro",
+   "b": "Vår Energi",
+   "n": 5
+  },
+  {
+   "a": "DNO",
+   "b": "Petoro",
+   "n": 4
+  },
+  {
+   "a": "Equinor",
+   "b": "Harbour Energy",
+   "n": 4
+  },
+  {
+   "a": "Aker BP",
+   "b": "Vår Energi",
+   "n": 3
+  },
+  {
+   "a": "Equinor",
+   "b": "INPEX Idemitsu",
+   "n": 3
+  },
+  {
+   "a": "Equinor",
+   "b": "OMV",
+   "n": 3
+  },
+  {
+   "a": "Harbour Energy",
+   "b": "ORLEN",
+   "n": 3
+  },
+  {
+   "a": "Equinor",
+   "b": "Wellesley",
+   "n": 3
+  },
+  {
+   "a": "DNO",
+   "b": "Wellesley",
+   "n": 3
+  },
+  {
+   "a": "DNO",
+   "b": "Vår Energi",
+   "n": 3
+  },
+  {
+   "a": "Equinor",
+   "b": "OKEA",
+   "n": 3
+  },
+  {
+   "a": "Concedo",
+   "b": "Equinor",
+   "n": 2
+  },
+  {
+   "a": "Aker BP",
+   "b": "Source Energy",
+   "n": 2
+  },
+  {
+   "a": "INPEX Idemitsu",
+   "b": "Petoro",
+   "n": 2
+  },
+  {
+   "a": "ORLEN",
+   "b": "Petoro",
+   "n": 2
+  },
+  {
+   "a": "DNO",
+   "b": "Source Energy",
+   "n": 2
+  },
+  {
+   "a": "Concedo",
+   "b": "OMV",
+   "n": 1
+  },
+  {
+   "a": "Concedo",
+   "b": "Pandion",
+   "n": 1
+  },
+  {
+   "a": "Concedo",
+   "b": "Petoro",
+   "n": 1
+  },
+  {
+   "a": "ConocoPhillips",
+   "b": "INPEX Idemitsu",
+   "n": 1
+  },
+  {
+   "a": "DNO",
+   "b": "OKEA",
+   "n": 1
+  },
+  {
+   "a": "DNO",
+   "b": "Harbour Energy",
+   "n": 1
+  },
+  {
+   "a": "DNO",
+   "b": "OMV",
+   "n": 1
+  },
+  {
+   "a": "Equinor",
+   "b": "Petrolia NOCO",
+   "n": 1
+  },
+  {
+   "a": "Equinor",
+   "b": "Source Energy",
+   "n": 1
+  },
+  {
+   "a": "Equinor",
+   "b": "Pandion",
+   "n": 1
+  },
+  {
+   "a": "Equinor",
+   "b": "ORLEN",
+   "n": 1
+  },
+  {
+   "a": "Equinor",
+   "b": "Japex",
+   "n": 1
+  },
+  {
+   "a": "Harbour Energy",
+   "b": "Vår Energi",
+   "n": 1
+  },
+  {
+   "a": "Harbour Energy",
+   "b": "Japex",
+   "n": 1
+  },
+  {
+   "a": "Equinor",
+   "b": "TotalEnergies",
+   "n": 1
+  }
+ ],
+ "history": [
+  {
+   "year": 2003,
+   "licences": 19,
+   "km2": 9166,
+   "active": 3,
+   "award_date": "2003-12-12",
+   "Barents Sea": 0,
+   "North Sea": 16,
+   "Norwegian Sea": 3
+  },
+  {
+   "year": 2004,
+   "licences": 28,
+   "km2": 10866,
+   "active": 7,
+   "award_date": "2004-12-17",
+   "Barents Sea": 1,
+   "North Sea": 17,
+   "Norwegian Sea": 10
+  },
+  {
+   "year": 2005,
+   "licences": 45,
+   "km2": 16180,
+   "active": 10,
+   "award_date": "2006-01-06",
+   "Barents Sea": 0,
+   "North Sea": 31,
+   "Norwegian Sea": 14
+  },
+  {
+   "year": 2006,
+   "licences": 58,
+   "km2": 22419,
+   "active": 8,
+   "award_date": "2007-02-16",
+   "Barents Sea": 4,
+   "North Sea": 40,
+   "Norwegian Sea": 14
+  },
+  {
+   "year": 2007,
+   "licences": 52,
+   "km2": 16240,
+   "active": 7,
+   "award_date": "2008-02-29",
+   "Barents Sea": 7,
+   "North Sea": 24,
+   "Norwegian Sea": 21
+  },
+  {
+   "year": 2008,
+   "licences": 35,
+   "km2": 11147,
+   "active": 6,
+   "award_date": "2009-01-23",
+   "Barents Sea": 2,
+   "North Sea": 21,
+   "Norwegian Sea": 12
+  },
+  {
+   "year": 2009,
+   "licences": 38,
+   "km2": 7949,
+   "active": 5,
+   "award_date": "2010-02-19",
+   "Barents Sea": 3,
+   "North Sea": 25,
+   "Norwegian Sea": 10
+  },
+  {
+   "year": 2010,
+   "licences": 49,
+   "km2": 14687,
+   "active": 6,
+   "award_date": "2011-02-04",
+   "Barents Sea": 2,
+   "North Sea": 30,
+   "Norwegian Sea": 17
+  },
+  {
+   "year": 2011,
+   "licences": 60,
+   "km2": 21386,
+   "active": 8,
+   "award_date": "2012-02-03",
+   "Barents Sea": 4,
+   "North Sea": 34,
+   "Norwegian Sea": 22
+  },
+  {
+   "year": 2012,
+   "licences": 51,
+   "km2": 19090,
+   "active": 3,
+   "award_date": "2013-02-08",
+   "Barents Sea": 3,
+   "North Sea": 34,
+   "Norwegian Sea": 14
+  },
+  {
+   "year": 2013,
+   "licences": 65,
+   "km2": 18134,
+   "active": 3,
+   "award_date": "2014-02-07",
+   "Barents Sea": 8,
+   "North Sea": 38,
+   "Norwegian Sea": 19
+  },
+  {
+   "year": 2014,
+   "licences": 54,
+   "km2": 15091,
+   "active": 2,
+   "award_date": "2015-02-06",
+   "Barents Sea": 4,
+   "North Sea": 33,
+   "Norwegian Sea": 17
+  },
+  {
+   "year": 2015,
+   "licences": 56,
+   "km2": 20058,
+   "active": 7,
+   "award_date": "2016-02-05",
+   "Barents Sea": 5,
+   "North Sea": 27,
+   "Norwegian Sea": 24
+  },
+  {
+   "year": 2016,
+   "licences": 56,
+   "km2": 23775,
+   "active": 8,
+   "award_date": "2017-02-10",
+   "Barents Sea": 3,
+   "North Sea": 36,
+   "Norwegian Sea": 17
+  },
+  {
+   "year": 2017,
+   "licences": 75,
+   "km2": 21922,
+   "active": 15,
+   "award_date": "2018-03-02",
+   "Barents Sea": 8,
+   "North Sea": 45,
+   "Norwegian Sea": 22
+  },
+  {
+   "year": 2018,
+   "licences": 83,
+   "km2": 49965,
+   "active": 11,
+   "award_date": "2019-03-01",
+   "Barents Sea": 14,
+   "North Sea": 37,
+   "Norwegian Sea": 32
+  },
+  {
+   "year": 2019,
+   "licences": 68,
+   "km2": 39866,
+   "active": 9,
+   "award_date": "2020-02-14",
+   "Barents Sea": 13,
+   "North Sea": 33,
+   "Norwegian Sea": 22
+  },
+  {
+   "year": 2020,
+   "licences": 61,
+   "km2": 31280,
+   "active": 19,
+   "award_date": "2021-02-19",
+   "Barents Sea": 3,
+   "North Sea": 34,
+   "Norwegian Sea": 24
+  },
+  {
+   "year": 2021,
+   "licences": 53,
+   "km2": 14160,
+   "active": 19,
+   "award_date": "2022-03-11",
+   "Barents Sea": 5,
+   "North Sea": 28,
+   "Norwegian Sea": 20
+  },
+  {
+   "year": 2022,
+   "licences": 47,
+   "km2": 8516,
+   "active": 24,
+   "award_date": "2023-02-17",
+   "Barents Sea": 2,
+   "North Sea": 29,
+   "Norwegian Sea": 16
+  },
+  {
+   "year": 2023,
+   "licences": 62,
+   "km2": 21362,
+   "active": 39,
+   "award_date": "2024-03-05",
+   "Barents Sea": 8,
+   "North Sea": 31,
+   "Norwegian Sea": 23
+  },
+  {
+   "year": 2024,
+   "licences": 53,
+   "km2": 11711,
+   "active": 48,
+   "award_date": "2025-03-14",
+   "Barents Sea": 1,
+   "North Sea": 35,
+   "Norwegian Sea": 17
+  },
+  {
+   "year": 2025,
+   "licences": 56,
+   "km2": 23962,
+   "active": 56,
+   "award_date": "2026-03-20",
+   "Barents Sea": 5,
+   "North Sea": 30,
+   "Norwegian Sea": 21
+  }
+ ],
+ "later_changes": [
+  {
+   "licence": "1255 B",
+   "company": "Equinor",
+   "pct": 30.0,
+   "from": "2026-06-30"
+  },
+  {
+   "licence": "1255 B",
+   "company": "OKEA",
+   "pct": 50.0,
+   "from": "2026-06-30"
+  },
+  {
+   "licence": "1255 B",
+   "company": "DNO",
+   "pct": 20.0,
+   "from": "2026-06-30"
+  },
+  {
+   "licence": "1288 S",
+   "company": "Concedo",
+   "pct": 20.0,
+   "from": "2026-09-30"
+  },
+  {
+   "licence": "1288 S",
+   "company": "Vår Energi",
+   "pct": 20.0,
+   "from": "2026-09-30"
+  },
+  {
+   "licence": "1288 S",
+   "company": "Equinor",
+   "pct": 40.0,
+   "from": "2026-09-30"
+  },
+  {
+   "licence": "956 B",
+   "company": "Vår Energi",
+   "pct": 80.0,
+   "from": "2026-09-30"
+  },
+  {
+   "licence": "1288 S",
+   "company": "Petoro",
+   "pct": 20.0,
+   "from": "2026-09-30"
+  },
+  {
+   "licence": "956 B",
+   "company": "Aker BP",
+   "pct": 20.0,
+   "from": "2026-09-30"
+  },
+  {
+   "licence": "1177 B",
+   "company": "Aker BP",
+   "pct": 15.0,
+   "from": "2026-10-30"
+  },
+  {
+   "licence": "1177 B",
+   "company": "OMV",
+   "pct": 30.0,
+   "from": "2026-10-30"
+  },
+  {
+   "licence": "1177 B",
+   "company": "DNO",
+   "pct": 15.0,
+   "from": "2026-10-30"
+  },
+  {
+   "licence": "1177 B",
+   "company": "Equinor",
+   "pct": 40.0,
+   "from": "2026-10-30"
+  }
+ ],
+ "apa_area_km2": [
+  {
+   "year": 2003,
+   "km2": 84731.0
+  },
+  {
+   "year": 2004,
+   "km2": 97094.0
+  },
+  {
+   "year": 2005,
+   "km2": 121315.0
+  },
+  {
+   "year": 2006,
+   "km2": 126931.0
+  },
+  {
+   "year": 2007,
+   "km2": 130791.0
+  },
+  {
+   "year": 2008,
+   "km2": 138587.0
+  },
+  {
+   "year": 2009,
+   "km2": 138587.0
+  },
+  {
+   "year": 2010,
+   "km2": 162578.0
+  },
+  {
+   "year": 2011,
+   "km2": 186349.0
+  },
+  {
+   "year": 2012,
+   "km2": 196625.0
+  },
+  {
+   "year": 2013,
+   "km2": 199054.0
+  },
+  {
+   "year": 2014,
+   "km2": 202486.0
+  },
+  {
+   "year": 2015,
+   "km2": 220896.0
+  },
+  {
+   "year": 2016,
+   "km2": 240818.0
+  },
+  {
+   "year": 2017,
+   "km2": 272180.0
+  },
+  {
+   "year": 2018,
+   "km2": 310163.0
+  },
+  {
+   "year": 2019,
+   "km2": 344313.0
+  },
+  {
+   "year": 2020,
+   "km2": 358593.0
+  },
+  {
+   "year": 2021,
+   "km2": 386133.0
+  },
+  {
+   "year": 2022,
+   "km2": 394500.0
+  },
+  {
+   "year": 2023,
+   "km2": 424172.0
+  },
+  {
+   "year": 2024,
+   "km2": 435275.0
+  },
+  {
+   "year": 2025,
+   "km2": 458138.0
+  },
+  {
+   "year": 2026,
+   "km2": 483935.0
+  }
+ ]
+}

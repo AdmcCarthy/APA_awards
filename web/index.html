@@ -1,0 +1,869 @@
+<meta charset="utf-8">
+<title>Close to Home: APA 2025</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A data narrative on the 56 production licences Norway granted on 20 March 2026 in the APA 2025 round.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a nautical-chart reading room. Sticky shelf map left, story steps right; charts full-measure below. */
+:root {
+  --bg: #fbfcfc;
+  --sea: #f1f6f8;
+  --land: #e6e1d4;
+  --land-edge: #c9c1ad;
+  --ink: #13202a;
+  --ink-2: #4a5a66;
+  --muted: #74838e;
+  --rule: #d6dee3;
+  --grid: #c6d3da;
+  --existing: #d9e1e6;
+  --apa: #e5eef2;
+  --accent: #1f4e79;
+  --accent-soft: #c9dbeb;
+  --halo: #fbfcfc;
+  --card: #ffffff;
+  /* operator colours: brand-derived hues, re-stepped to pass CVD checks (see Methods) */
+  --c-equinor: #e74944;
+  --c-akerbp: #2543c2;
+  --c-var: #1aa58a;
+  --c-dno: #dd9f39;
+  --c-harbour: #57b0f5;
+  --c-wellesley: #9655a7;
+  --c-other: #8f9aa3;
+  --seq-0: #eef3f7; --seq-1: #c9dbeb; --seq-2: #8fb3d6; --seq-3: #4f82b8; --seq-4: #1f4e79;
+  --f-display: "Spectral", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --measure: 38rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d141a; --sea: #111c24; --land: #26313a; --land-edge: #3a4752; --ink: #e5ecf0; --ink-2: #aab8c2;
+    --muted: #7f8e99; --rule: #253440; --grid: #2c3d4a; --existing: #22323e; --apa: #172a36; --accent: #8db8e0;
+    --accent-soft: #23415c; --halo: #111c24; --card: #131e27;
+    --c-equinor: #d03428; --c-akerbp: #4547ca; --c-var: #42a774; --c-dno: #b78527; --c-harbour: #0690d2;
+    --c-wellesley: #993794; --c-other: #6b7883;
+    --seq-0: #15232d; --seq-1: #1d3a52; --seq-2: #2c5c86; --seq-3: #4f86bd; --seq-4: #8db8e0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d141a; --sea: #111c24; --land: #26313a; --land-edge: #3a4752; --ink: #e5ecf0; --ink-2: #aab8c2;
+  --muted: #7f8e99; --rule: #253440; --grid: #2c3d4a; --existing: #22323e; --apa: #172a36; --accent: #8db8e0;
+  --accent-soft: #23415c; --halo: #111c24; --card: #131e27;
+  --c-equinor: #d03428; --c-akerbp: #4547ca; --c-var: #42a774; --c-dno: #b78527; --c-harbour: #0690d2;
+  --c-wellesley: #993794; --c-other: #6b7883;
+  --seq-0: #15232d; --seq-1: #1d3a52; --seq-2: #2c5c86; --seq-3: #4f86bd; --seq-4: #8db8e0;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.prose { max-width: var(--measure); }
+.prose p { margin: 0 0 1.1em; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; letter-spacing: -0.01em; margin: 0; }
+h1 { font-size: clamp(2.3rem, 5.4vw, 4.1rem); line-height: 1.04; font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; margin-bottom: 0.6em; }
+h3 { font-size: 1.15rem; line-height: 1.3; }
+.kicker, .label { font-family: var(--f-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible, th:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--f-mono); font-size: 0.92em; }
+
+/* ---------- hero ---------- */
+header.hero { padding-block: clamp(2.2rem, 6vw, 4.5rem) 1.5rem; border-bottom: 1px solid var(--rule); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: end; }
+.hero .kicker { margin-bottom: 1rem; display: block; }
+.dek { font-family: var(--f-display); font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.45; color: var(--ink-2); margin: 1.2rem 0 0; max-width: 34rem; }
+.byline { margin-top: 1.4rem; font-size: 0.86rem; color: var(--muted); }
+.ledger { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.ledger div { padding: 0.8rem 0.2rem 0.9rem; border-bottom: 1px solid var(--rule); }
+.ledger div:nth-child(odd) { border-right: 1px solid var(--rule); padding-right: 1rem; }
+.ledger div:nth-child(even) { padding-left: 1rem; }
+.ledger b { display: block; font-family: var(--f-display); font-weight: 600; font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.05; font-variant-numeric: tabular-nums lining-nums; }
+.ledger span { font-size: 0.84rem; color: var(--ink-2); line-height: 1.35; display: block; margin-top: 0.25rem; }
+
+/* ---------- scrolly map ---------- */
+.scrolly { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(1rem, 3vw, 3rem); padding-block: 2rem 1rem; }
+.map-col { position: relative; min-width: 0; }
+.map-sticky { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 0.75rem); height: calc(100vh - 1.5rem); max-height: 60rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.map-frame { position: relative; flex: 1; min-height: 0; background: var(--sea); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+#map { width: 100%; height: 100%; display: block; }
+.map-caption { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; align-items: center; font-size: 0.8rem; color: var(--ink-2); }
+.key { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+.sw { width: 0.85rem; height: 0.85rem; border-radius: 2px; display: inline-block; flex: none; }
+.sw.line { height: 0; border-top: 1.5px solid var(--grid); border-radius: 0; }
+.map-scale { position: absolute; left: 12px; bottom: 10px; font-family: var(--f-mono); font-size: 0.68rem; color: var(--ink-2); pointer-events: none; }
+.map-corner { position: absolute; right: 12px; top: 10px; font-family: var(--f-mono); font-size: 0.68rem; color: var(--ink-2); text-align: right; pointer-events: none; line-height: 1.4; }
+.steps { min-width: 0; }
+.step { min-height: 78vh; display: flex; align-items: center; }
+.step:first-child { min-height: 55vh; align-items: flex-start; padding-top: 1rem; }
+.step:last-child { min-height: 70vh; }
+.step-card { background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 1.2rem 1.3rem 0.4rem; max-width: 30rem; box-shadow: 0 1px 0 var(--rule); }
+.step-card .label { display: block; margin-bottom: 0.5rem; }
+.step-card h3 { margin-bottom: 0.5rem; }
+.step-card p { font-size: 0.98rem; margin: 0 0 0.9rem; }
+.step.is-active .step-card { border-color: var(--ink-2); }
+
+/* map svg classes */
+.sea-bg { fill: var(--sea); }
+.land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.6; vector-effect: non-scaling-stroke; }
+.apa { fill: var(--apa); stroke: none; }
+.apa-edge { fill: none; stroke: var(--accent); stroke-opacity: 0.45; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.block { fill: none; stroke: var(--grid); stroke-width: 0.45; vector-effect: non-scaling-stroke; }
+.quad { fill: none; stroke: var(--grid); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.seab { fill: none; stroke: var(--ink-2); stroke-opacity: 0.55; stroke-width: 0.8; vector-effect: non-scaling-stroke; }
+.existing { fill: var(--existing); stroke: var(--bg); stroke-width: 0.4; vector-effect: non-scaling-stroke; }
+.field { fill: var(--ink-2); fill-opacity: 0.38; stroke: none; }
+.award { stroke: var(--sea); stroke-width: 1; vector-effect: non-scaling-stroke; cursor: pointer; transition: opacity 0.25s; }
+.award.dim { opacity: 0.18; }
+.award:hover, .award.hl { stroke: var(--ink); stroke-width: 2; }
+.g-Equinor { fill: var(--c-equinor); } .g-AkerBP { fill: var(--c-akerbp); } .g-VarEnergi { fill: var(--c-var); }
+.g-DNO { fill: var(--c-dno); } .g-HarbourEnergy { fill: var(--c-harbour); } .g-Wellesley { fill: var(--c-wellesley); }
+.g-Other { fill: var(--c-other); }
+.bg-Equinor { background: var(--c-equinor); } .bg-AkerBP { background: var(--c-akerbp); } .bg-VarEnergi { background: var(--c-var); }
+.bg-DNO { background: var(--c-dno); } .bg-HarbourEnergy { background: var(--c-harbour); } .bg-Wellesley { background: var(--c-wellesley); }
+.bg-Other { background: var(--c-other); }
+.maplabel { font-family: var(--f-body); fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-linejoin: round; pointer-events: none; }
+.maplabel.town { fill: var(--ink-2); font-weight: 500; }
+.maplabel.fieldlbl { fill: var(--ink-2); font-style: italic; }
+.maplabel.lic { font-family: var(--f-mono); font-weight: 500; }
+.maplabel.sea { fill: var(--muted); font-family: var(--f-display); font-style: italic; letter-spacing: 0.12em; }
+.town-dot { fill: var(--ink-2); }
+
+/* ---------- sections ---------- */
+section.chapter { padding-block: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--rule); }
+.chapter-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem clamp(1.5rem, 4vw, 4rem); align-items: start; margin-bottom: 1.5rem; }
+.chapter-head .kicker { display: block; margin-bottom: 0.6rem; }
+.fig { margin: 0; }
+.fig figcaption { font-size: 0.82rem; color: var(--muted); margin-top: 0.6rem; max-width: var(--measure); }
+.fig-title { font-family: var(--f-body); font-weight: 600; font-size: 0.98rem; margin: 0 0 0.15rem; }
+.fig-sub { font-size: 0.85rem; color: var(--ink-2); margin: 0 0 0.8rem; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.axis text, .tick text { fill: var(--ink-2); font-family: var(--f-body); font-size: 11px; }
+.axis path, .axis line, .tick line { stroke: var(--rule); }
+.gridline { stroke: var(--rule); stroke-width: 1; }
+.chart text.val { fill: var(--ink); font-size: 11px; font-variant-numeric: tabular-nums; }
+.chart text.lbl { fill: var(--ink); font-size: 12px; }
+.chart text.note { fill: var(--ink-2); font-size: 11px; }
+.two-up { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem clamp(1.5rem, 4vw, 3.5rem); }
+.scroll-x { overflow-x: auto; }
+@media (max-width: 860px) { .scroll-x svg { min-width: 760px; } }
+.legend { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 0.8rem; color: var(--ink-2); margin-bottom: 0.6rem; }
+.pull { font-family: var(--f-display); font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.35; border-left: 3px solid var(--ink); padding-left: 1rem; margin: 0.4rem 0 1.4rem; max-width: 34rem; }
+
+/* tooltip */
+.tip { position: fixed; z-index: 30; pointer-events: none; background: var(--card); color: var(--ink); border: 1px solid var(--ink-2); border-radius: 3px; padding: 0.6rem 0.75rem; font-size: 0.8rem; line-height: 1.4; max-width: 18rem; box-shadow: 0 4px 18px rgba(0,0,0,0.12); }
+.tip h4 { margin: 0 0 0.25rem; font-family: var(--f-mono); font-size: 0.86rem; display: flex; align-items: center; gap: 0.4rem; }
+.tip .meta { color: var(--ink-2); margin-bottom: 0.35rem; }
+.tip table { border-collapse: collapse; width: 100%; }
+.tip td { padding: 0.05rem 0; }
+.tip td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* table */
+.tools { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: center; margin-bottom: 0.8rem; }
+.tools input { font: inherit; font-size: 0.9rem; padding: 0.45rem 0.7rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--card); color: var(--ink); min-width: 0; width: 18rem; max-width: 100%; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.chips button { font: inherit; font-size: 0.8rem; padding: 0.25rem 0.65rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--card); color: var(--ink-2); cursor: pointer; }
+.chips button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); background: var(--accent-soft); }
+.table-wrap { overflow-x: auto; border-top: 2px solid var(--ink); }
+table.data { border-collapse: collapse; width: 100%; font-size: 0.86rem; min-width: 46rem; }
+table.data th { text-align: left; font-weight: 600; font-size: 0.76rem; color: var(--ink-2); padding: 0.55rem 0.5rem; border-bottom: 1px solid var(--rule); cursor: pointer; white-space: nowrap; user-select: none; }
+table.data th[aria-sort="ascending"]::after { content: " ▲"; font-size: 0.65em; }
+table.data th[aria-sort="descending"]::after { content: " ▼"; font-size: 0.65em; }
+table.data td { padding: 0.5rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.data td.r, table.data th.r { text-align: right; font-variant-numeric: tabular-nums; }
+table.data tr:hover td { background: var(--apa); }
+.op { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+.partners { color: var(--ink-2); font-size: 0.8rem; }
+.tag { font-family: var(--f-mono); font-size: 0.68rem; border: 1px solid var(--rule); border-radius: 2px; padding: 0 0.3rem; color: var(--ink-2); margin-left: 0.3rem; white-space: nowrap; }
+
+.methods { font-size: 0.9rem; color: var(--ink-2); }
+.methods h3 { color: var(--ink); margin: 1.2rem 0 0.4rem; font-size: 1rem; font-family: var(--f-body); }
+.methods ul { padding-left: 1.1rem; margin: 0; }
+.methods li { margin-bottom: 0.4rem; }
+footer { padding-block: 2rem 3rem; border-top: 1px solid var(--rule); font-size: 0.8rem; color: var(--muted); }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 0.9rem; }
+
+@media (max-width: 860px) {
+  body { font-size: 16px; }
+  .hero-grid, .chapter-head, .two-up { grid-template-columns: minmax(0, 1fr); }
+  .scrolly { grid-template-columns: minmax(0, 1fr); padding-top: 1rem; }
+  .map-col { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-bottom: 0.4rem; }
+  .map-sticky { position: relative; top: 0; height: 52vh; min-height: 18rem; }
+  .map-caption { font-size: 0.72rem; }
+  .step, .step:first-child, .step:last-child { min-height: 62vh; align-items: flex-start; padding-top: 1rem; }
+  .step-card { background: var(--card); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Norwegian continental shelf · APA 2025 · granted 20 March 2026</span>
+      <h1>Close to home</h1>
+      <p class="dek">Norway's latest award in predefined areas handed out 24,000 km² of seabed. Most of the 56 licences hug existing fields. Six large step-outs hold about half of the acreage.</p>
+      <p class="byline">Data narrative built from Sodir FactMaps, retrieved <span id="retrieved">6 November 2026</span>. Hover over any licence for its partners.</p>
+    </div>
+    <div class="ledger" id="ledger">
+      <div><b class="num" data-k="n">56</b><span>production licences granted (57 were offered in January)</span></div>
+      <div><b class="num" data-k="co">19</b><span>companies, 13 of them as operator</span></div>
+      <div><b class="num" data-k="km2">23,962</b><span>km² awarded, about twice APA 2024</span></div>
+      <div><b class="num" data-k="med">2.1 km</b><span>median gap between a new licence and a producing field</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap scrolly">
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-frame">
+          <svg id="map" role="img" aria-label="Map of the Norwegian continental shelf showing the 56 APA 2025 licences coloured by operator"></svg>
+          <div class="loading" id="map-loading">Loading Sodir layers…</div>
+          <div class="map-corner" id="map-corner">ED50 → WGS84<br>Lambert conformal conic</div>
+          <div class="map-scale" id="map-scale"></div>
+        </div>
+        <div class="map-caption" id="map-legend" aria-label="Map legend"></div>
+      </div>
+    </div>
+    <div class="steps" id="steps">
+      <div class="step" data-step="ncs">
+        <div class="step-card">
+          <span class="label">The shelf</span>
+          <h3>458,000 km² on offer, 24,000 km² taken</h3>
+          <p>The pale blue wash is the APA 2025 predefined area, the mature acreage where companies may apply every year. Grey shapes are licences that already exist. The coloured shapes are the 56 new licences, coloured by operator.</p>
+          <p>Seen from this far out, the new acreage almost disappears into the existing licence map. That's intended: APA is meant to keep exploration going around infrastructure that is already in place.</p>
+        </div>
+      </div>
+      <div class="step" data-step="ns">
+        <div class="step-card">
+          <span class="label">North Sea · <span class="num" data-k="ns-n">30</span> licences · <span class="num" data-k="ns-km2">7,595</span> km²</span>
+          <h3>Infill around the big hubs</h3>
+          <p>More than half of the licences are in the North Sea, but they are small: a median of <span class="num" data-k="ns-med">80</span> km². Equinor's cluster runs from Sleipner north to Troll and Gullfaks. Ten of the North Sea awards are stratigraphic, granted only above or below a given level, so they slot under or over licences that already exist.</p>
+          <p>The exception is DNO's licence <span class="mono">1278</span>. At 2,698 km² it is the largest in the North Sea, and it lies in the far south near Trym, close to the Danish median line.</p>
+        </div>
+      </div>
+      <div class="step" data-step="nws">
+        <div class="step-card">
+          <span class="label">Norwegian Sea · <span class="num" data-k="nws-n">21</span> licences · <span class="num" data-k="nws-km2">11,356</span> km²</span>
+          <h3>The area winner</h3>
+          <p>The Norwegian Sea took 47% of the acreage. Four large licences each lie more than 60 km from the nearest producing field. Equinor's <span class="mono">1297</span>, Aker BP's <span class="mono">1296</span> and Vår Energi's <span class="mono">1298</span> sit just north of 62°N, south-west of Ormen Lange. Aker BP's <span class="mono">1308</span> lies far out on the western Vøring margin.</p>
+          <p>Closer in, Aker BP, Harbour and OKEA picked up small pieces next to Skarv, Alve and Dvalin, the sort of near-field tiebacks this round was designed for.</p>
+        </div>
+      </div>
+      <div class="step" data-step="bs">
+        <div class="step-card">
+          <span class="label">Barents Sea · <span class="num" data-k="bs-n">5</span> licences · <span class="num" data-k="bs-km2">5,011</span> km²</span>
+          <h3>One licence, one-fifth of the round</h3>
+          <p>Aker BP's licence <span class="mono">1313</span> covers 4,345 km², 18% of everything awarded and almost nine-tenths of the Barents Sea total. At 106 km from Snøhvit, it is also the most remote licence in the round.</p>
+          <p>The other four Barents awards sit close to Goliat, Snøhvit and Johan Castberg.</p>
+        </div>
+      </div>
+      <div class="step" data-step="ncs2">
+        <div class="step-card">
+          <span class="label">Who operates</span>
+          <h3>Two companies operate half the licences</h3>
+          <p>Equinor operates 16 licences and Aker BP 12, so between them they run 28 of the 56. Equinor is a partner in 35 licences in all, nearly two-thirds of the round. The colours follow each company's brand hue, adjusted so that readers with colour-vision deficiency can tell them apart. Grey covers the seven smaller operators.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div>
+          <span class="kicker">Chapter 1 · The winners</span>
+          <h2>Equinor wins on licence count, Aker BP on acreage</h2>
+        </div>
+        <div class="prose">
+          <p>Licence counts flatter companies that take small slivers next to their own fields. Weighting each licence by the company's equity share gives a different ranking. Aker BP's net acreage, about <span class="num" data-k="ak-net">9,150</span> km², is well ahead of Equinor's <span class="num" data-k="eq-net">5,600</span> km², because Aker BP went big in the Barents and Norwegian seas.</p>
+        </div>
+      </div>
+      <div class="two-up">
+        <figure class="fig chart">
+          <p class="fig-title">Licences by company</p>
+          <p class="fig-sub">Solid: operator · Lighter: partner only</p>
+          <div id="ch-count"></div>
+        </figure>
+        <figure class="fig chart">
+          <p class="fig-title">Net acreage by company, km²</p>
+          <p class="fig-sub">Licence area × equity share at grant</p>
+          <div id="ch-net"></div>
+        </figure>
+      </div>
+      <p class="fig figcaption" style="margin-top:1rem">Petoro manages the State's Direct Financial Interest (SDFI) and never operates. The state took a share in 20 of the 56 licences, at between 10% and 40%.</p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div>
+          <span class="kicker">Chapter 2 · Near-field</span>
+          <h2>Most of the new licences are within sight of a platform</h2>
+        </div>
+        <div class="prose">
+          <p class="pull"><span class="num" data-k="le25">47</span> of the 56 licences lie within 25 km of a producing or approved field. Half are within <span class="num" data-k="med2">2.1</span> km.</p>
+          <p>The few licences far from infrastructure are also the biggest. The <span class="num" data-k="far-n">six</span> licences more than 50 km from a field hold <span class="num" data-k="far-share">51%</span> of the awarded area.</p>
+        </div>
+      </div>
+      <figure class="fig chart">
+        <p class="fig-title">Distance from each new licence to the nearest producing or approved field</p>
+        <p class="fig-sub">One dot per licence, area proportional to licence size. Distance scale is compressed above 5 km.</p>
+        <div class="legend" id="lg-dist"></div>
+        <div id="ch-dist" class="scroll-x"></div>
+        <figcaption>Edge-to-edge distance between licence and field outlines, computed in ETRS89-LAEA. A distance of 0 means the licence touches or overlaps a field outline (stratigraphic licences can sit directly above or below one).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div>
+          <span class="kicker">Chapter 3 · Two decades of APA</span>
+          <h2>The predefined area has grown fivefold, and most licences are handed back</h2>
+        </div>
+        <div class="prose">
+          <p>APA started in 2003 with <span class="num">84,700</span> km² of predefined area. Each year the ministry adds blocks to it. The APA 2025 area was <span class="num">458,100</span> km², and APA 2026 has grown it again to <span class="num">483,900</span> km².</p>
+          <p>Most APA licences are short-lived. Of the <span class="num" data-k="old-n">850</span> licences awarded in the rounds up to 2015, only <span class="num" data-k="old-act">11%</span> are still active. The rest have been relinquished, usually after a dry well or a decision not to drill. If that rate holds, six or seven of this year's 56 will still be active a decade from now.</p>
+        </div>
+      </div>
+      <div class="two-up">
+        <figure class="fig chart">
+          <p class="fig-title">Licences awarded per APA round</p>
+          <div class="legend"><span class="key"><span class="sw" style="background:var(--seq-4)"></span>Still active</span><span class="key"><span class="sw" style="background:var(--seq-1)"></span>Relinquished or expired</span></div>
+          <div id="ch-hist"></div>
+          <figcaption>Round year as named by Sodir. Offers are announced in January of the following year and the licences are formally granted a few weeks later. Original licences only, partitions excluded.</figcaption>
+        </figure>
+        <figure class="fig chart">
+          <p class="fig-title">Area awarded per round, km²</p>
+          <div class="legend"><span class="key"><span class="sw" style="background:var(--seq-3)"></span>Licence area at award</span></div>
+          <div id="ch-area"></div>
+          <figcaption>APA 2025 (<span class="num">23,962</span> km²) is the largest award by area since APA 2020, and roughly twice APA 2024.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div>
+          <span class="kicker">Chapter 4 · Partnerships</span>
+          <h2>Who applied together</h2>
+        </div>
+        <div class="prose">
+          <p>The ministry puts the licence groups together, but they mostly follow the companies' own applications. Equinor and Petoro share 13 licences. Equinor and Vår Energi share 11, and Aker BP pairs with DNO and with Equinor on nine each.</p>
+        </div>
+      </div>
+      <figure class="fig chart">
+        <p class="fig-title">Number of APA 2025 licences each pair of companies shares</p>
+        <p class="fig-sub">Companies in five or more licences. Darker means more shared licences.</p>
+        <div id="ch-pairs" style="overflow-x:auto"></div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div>
+          <span class="kicker">Chapter 5 · Since the ink dried</span>
+          <h2>Four licences have already changed hands</h2>
+        </div>
+        <div class="prose">
+          <p>Licence groups in APA rounds are often reshuffled through farm-ins and swaps within months of the award. Sodir's register shows new licensee line-ups on four of the 56 licences between June and October 2026.</p>
+        </div>
+      </div>
+      <div class="table-wrap"><table class="data" id="tbl-changes" style="min-width:34rem"></table></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="explore">
+    <div class="wrap">
+      <div class="chapter-head">
+        <div>
+          <span class="kicker">All 56 licences</span>
+          <h2>Find a licence</h2>
+        </div>
+        <div class="prose"><p>Search by licence, company or nearest field. Click a column heading to sort, and click a row to show that licence on the map.</p></div>
+      </div>
+      <div class="tools">
+        <input id="q" type="search" placeholder="Search: 1313, DNO, Skarv…" aria-label="Search licences">
+        <div class="chips" id="area-chips" role="group" aria-label="Filter by area"></div>
+      </div>
+      <div class="table-wrap"><table class="data" id="tbl"></table></div>
+      <p class="fig figcaption" id="tbl-count"></p>
+    </div>
+  </section>
+
+  <section class="chapter methods">
+    <div class="wrap">
+      <h2>Methods and caveats</h2>
+      <div class="two-up">
+        <div class="prose">
+          <h3>Data</h3>
+          <ul>
+            <li>Licences, licensees, blocks, quadrants, fields, the predefined-area outline and the basemap (land, maritime boundaries, towns) all come from the <a href="https://factmaps.sodir.no/" target="_blank" rel="noopener">Sodir FactMaps</a> REST services, retrieved 6 November 2026. Sodir labels APA rounds <span class="mono">TFO&lt;year&gt;</span>, and this page covers <span class="mono">TFO2025</span>.</li>
+            <li>The ministry announced 57 offers on 13 January 2026. Sodir's register lists 56 licences under TFO2025, all granted 20 March 2026. I could not determine from the register why one is missing, so licence and operator counts here (Equinor 35/16, DNO 16/4, ORLEN 5/0) differ by one from the ministry press release (35/17, 17/4, 6/0).</li>
+            <li>Partners and equity shares are the line-up on the grant date. Later transfers are shown in Chapter 5 and not used elsewhere.</li>
+            <li>Licence areas are Sodir's area at award, in km². Net acreage is area × equity share.</li>
+          </ul>
+        </div>
+        <div class="prose">
+          <h3>Geometry</h3>
+          <ul>
+            <li>Sodir's native datum is ED50 (EPSG:4230). Geometries were requested in WGS84; the shift of about 100 m is below the resolution of these maps.</li>
+            <li>Distances use ETRS89-LAEA (EPSG:3035), measured edge to edge to the nearest field with status "Producing" or "Approved for production". Stratigraphic licences touching a field come out at 0 km, even when they are vertically separated from the field's reservoir.</li>
+            <li>The map uses a Lambert conformal conic projection (standard parallels 58° and 72° N, central meridian 14° E). Outlines were simplified to around 300 m.</li>
+            <h3>Colour</h3>
+            <li>Operator colours start from each company's brand hue: Equinor red, Aker BP blue, Vår Energi green, DNO amber, Harbour light blue, Wellesley violet. They are then shifted in lightness and chroma until every pair separates under protanopia and deuteranopia simulation, in both light and dark themes. They are approximations, not official brand values. Smaller operators share one grey and are identified by tooltip and table.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Sources: Sodir FactMaps (licence, licensee history, block, field and APA layers; Basemap_simple_grey). Code: <span class="mono">scripts/fetch_sodir.py</span>, <span class="mono">scripts/build_data.py</span>. Not affiliated with Sodir, the Ministry of Energy or any company named.</div></footer>
+
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+(() => {
+"use strict";
+const GROUPS = ["Equinor", "Aker BP", "Vår Energi", "DNO", "Harbour Energy", "Wellesley", "Other"];
+const CLS = { "Equinor": "Equinor", "Aker BP": "AkerBP", "Vår Energi": "VarEnergi", "DNO": "DNO", "Harbour Energy": "HarbourEnergy", "Wellesley": "Wellesley", "Other": "Other" };
+const cls = g => CLS[g] || "Other";
+const FEATURED = new Set(GROUPS.slice(0, 6));
+const groupOf = c => (FEATURED.has(c) ? c : "Other");
+const fmt = d3.format(",");
+const fmt1 = d3.format(",.1f");
+const tip = document.getElementById("tip");
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const load = f => fetch("data/" + f).then(r => { if (!r.ok) throw new Error(f + " " + r.status); return r.json(); });
+Promise.all(["awards.json", "summary.json", "land.json", "blocks.json", "quadrants.json", "apa_area.json",
+  "licences_existing.json", "fields.json", "sea_boundaries.json", "towns.json"].map(load))
+  .then(([awards, summary, land, blocks, quads, apa, existing, fields, seab, towns]) => {
+    document.getElementById("map-loading").remove();
+    // guard: drop any polygon d3 would read as wound the wrong way (area > a hemisphere fraction)
+    [land, blocks, quads, apa, existing, fields].forEach(fc => { fc.features = fc.features.filter(f => d3.geoArea(f) < 0.5); });
+    const A = awards.features;
+    A.forEach(f => { f.properties.group = groupOf(f.properties.operator); });
+    fillNumbers(A, summary);
+    const map = drawMap({ A, land, blocks, quads, apa, existing, fields, seab, towns });
+    setupSteps(map, A);
+    chartCompanies(summary);
+    chartDistance(A);
+    chartHistory(summary);
+    chartPairs(A);
+    tableChanges(summary, A);
+    tableAll(A, map);
+  })
+  .catch(err => {
+    const el = document.getElementById("map-loading");
+    if (el) el.textContent = "Map data failed to load (" + err.message + "). Reload the page to try again.";
+    console.error(err);
+  });
+
+/* ---------------- numbers in prose ---------------- */
+function fillNumbers(A, S) {
+  const set = (k, v) => document.querySelectorAll(`[data-k="${k}"]`).forEach(e => (e.textContent = v));
+  set("n", S.n_licences); set("co", S.n_companies); set("km2", fmt(S.total_km2));
+  set("med", fmt1(S.median_dist) + " km"); set("med2", fmt1(S.median_dist)); set("le25", S.dist_le_25);
+  const ar = Object.fromEntries(S.by_area.map(d => [d.area_name, d]));
+  const med = a => d3.median(A.filter(f => f.properties.area_name === a), f => f.properties.km2);
+  set("ns-n", ar["North Sea"].n); set("ns-km2", fmt(ar["North Sea"].km2)); set("ns-med", fmt(Math.round(med("North Sea"))));
+  set("nws-n", ar["Norwegian Sea"].n); set("nws-km2", fmt(ar["Norwegian Sea"].km2));
+  set("bs-n", ar["Barents Sea"].n); set("bs-km2", fmt(ar["Barents Sea"].km2));
+  const C = Object.fromEntries(S.companies.map(c => [c.name, c]));
+  set("ak-net", fmt(Math.round(C["Aker BP"].net_km2 / 50) * 50)); set("eq-net", fmt(Math.round(C["Equinor"].net_km2 / 50) * 50));
+  const far = A.filter(f => f.properties.dist_km > 50);
+  const words = ["zero","one","two","three","four","five","six","seven","eight","nine","ten"];
+  set("far-n", words[far.length] || far.length);
+  set("far-share", Math.round(100 * d3.sum(far, f => f.properties.km2) / S.total_km2) + "%");
+  const old = S.history.filter(h => h.year <= 2015);
+  set("old-n", fmt(d3.sum(old, h => h.licences)));
+  set("old-act", Math.round(100 * d3.sum(old, h => h.active) / d3.sum(old, h => h.licences)) + "%");
+}
+
+/* ---------------- tooltip ---------------- */
+function showTip(ev, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = tip.getBoundingClientRect(), pad = 14;
+  let x = ev.clientX + pad, y = ev.clientY + pad;
+  if (x + r.width > innerWidth - 8) x = ev.clientX - r.width - pad;
+  if (y + r.height > innerHeight - 8) y = ev.clientY - r.height - pad;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+function licTip(p) {
+  const rows = p.partners.map(q => `<tr><td>${q.c}${q.op ? " <b>(op)</b>" : ""}</td><td>${fmt1(q.pct)}%</td></tr>`).join("");
+  return `<h4><span class="sw bg-${cls(p.group)}"></span>PL ${p.name}</h4>
+    <div class="meta">${p.area_name} · ${fmt(p.km2)} km²${p.strat ? " · stratigraphic" : ""}${p.kind === "additional" ? ` · added to PL ${p.prlAdditAreaTo}` : ""}<br>
+    ${p.dist_km === 0 ? "Touches" : fmt1(p.dist_km) + " km from"} ${titleCase(p.nearest_field)}</div><table>${rows}</table>`;
+}
+function titleCase(s) { return s.toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()); }
+
+/* ---------------- map ---------------- */
+function drawMap({ A, land, blocks, quads, apa, existing, fields, seab, towns }) {
+  const svg = d3.select("#map");
+  const frame = svg.node().parentNode;
+  const proj = d3.geoConicConformal().parallels([58, 72]).rotate([-14, 0]);
+  const extent = { type: "Feature", geometry: { type: "MultiPoint", coordinates: [[-3, 56], [37, 74.6], [2, 74.6], [30, 56.2], [5, 56]] } };
+  const path = d3.geoPath(proj);
+  let W, H;
+  const g = svg.append("g");
+  const layers = {};
+  ["sea", "apa", "land", "existing", "fields", "quads", "blocks", "seab", "apaedge", "awards", "labels"].forEach(k => (layers[k] = g.append("g")));
+
+  function render() {
+    W = frame.clientWidth; H = frame.clientHeight;
+    svg.attr("viewBox", `0 0 ${W} ${H}`);
+    proj.fitExtent([[18, 18], [W - 18, H - 30]], extent);
+    layers.sea.selectAll("rect").data([0]).join("rect").attr("class", "sea-bg").attr("x", -W * 4).attr("y", -H * 4).attr("width", W * 9).attr("height", H * 9);
+    layers.apa.selectAll("path").data(apa.features).join("path").attr("class", "apa").attr("d", path);
+    layers.apaedge.selectAll("path").data(apa.features).join("path").attr("class", "apa-edge").attr("d", path);
+    layers.land.selectAll("path").data(land.features).join("path").attr("class", "land").attr("d", path);
+    layers.existing.selectAll("path").data(existing.features).join("path").attr("class", "existing").attr("d", path);
+    layers.fields.selectAll("path").data(fields.features).join("path").attr("class", "field").attr("d", path);
+    layers.quads.selectAll("path").data(quads.features).join("path").attr("class", "quad").attr("d", path);
+    layers.blocks.selectAll("path").data(blocks.features).join("path").attr("class", "block").attr("d", path);
+    layers.seab.selectAll("path").data(seab.features).join("path").attr("class", "seab").attr("d", path);
+    layers.awards.selectAll("path").data(A, d => d.properties.name).join("path")
+      .attr("class", d => `award g-${cls(d.properties.group)}`).attr("d", path)
+      .attr("tabindex", 0).attr("role", "button").attr("aria-label", d => `PL ${d.properties.name}, ${d.properties.operator}, ${d.properties.km2} km²`)
+      .on("mousemove", (ev, d) => showTip(ev, licTip(d.properties)))
+      .on("mouseleave", hideTip)
+      .on("focus", (ev, d) => { const b = ev.target.getBoundingClientRect(); showTip({ clientX: b.right, clientY: b.top }, licTip(d.properties)); })
+      .on("blur", hideTip);
+    drawLabels(currentK);
+  }
+
+  // labels: towns, seas, key fields and licences; font sizes counter-scaled by zoom k
+  const SEAS = [{ n: "NORTH SEA", c: [5.2, 57.45] }, { n: "NORWEGIAN SEA", c: [7.2, 68.2] }, { n: "BARENTS SEA", c: [27.5, 73.2] }];
+  const HUBS = new Set(["TROLL", "JOHAN SVERDRUP", "GULLFAKS", "OSEBERG", "SNORRE", "SLEIPNER ØST", "EKOFISK", "ALVHEIM", "SKARV", "HEIDRUN", "ÅSGARD", "ORMEN LANGE", "AASTA HANSTEEN", "NORNE", "SNØHVIT", "GOLIAT", "JOHAN CASTBERG", "KRISTIN", "DVALIN", "BALDER", "IVAR AASEN", "GRANE"]);
+  const fieldPts = fields.features.filter(f => HUBS.has(f.properties.fldName));
+  let currentK = 1, labelMode = "ncs";
+  function drawLabels(k) {
+    const s = v => v / k;
+    const L = layers.labels;
+    const townData = labelMode === "ncs" ? towns.filter(t => ["Oslo", "Bergen", "Stavanger", "Trondheim", "Bodø", "Tromsø", "Hammerfest"].includes(t.n)) : towns;
+    L.selectAll("circle.town-dot").data(townData, d => d.n).join("circle").attr("class", "town-dot")
+      .attr("cx", d => proj([d.x, d.y])[0]).attr("cy", d => proj([d.x, d.y])[1]).attr("r", s(2.2));
+    L.selectAll("text.town").data(townData, d => d.n).join("text").attr("class", "maplabel town")
+      .attr("x", d => proj([d.x, d.y])[0] + s(4)).attr("y", d => proj([d.x, d.y])[1] + s(3.5))
+      .attr("font-size", s(10.5)).attr("stroke-width", s(3)).text(d => d.n);
+    L.selectAll("text.sea").data(labelMode === "ncs" ? SEAS : SEAS.filter(d => d.n.startsWith(labelMode === "ns" ? "NORTH" : labelMode === "nws" ? "NORW" : "BAR")), d => d.n)
+      .join("text").attr("class", "maplabel sea").attr("text-anchor", "middle")
+      .attr("x", d => proj(d.c)[0]).attr("y", d => proj(d.c)[1]).attr("font-size", s(labelMode === "ncs" ? 12 : 15)).attr("stroke-width", s(3)).text(d => d.n);
+    const fdat = labelMode === "ncs" ? [] : fieldPts;
+    L.selectAll("text.fieldlbl").data(fdat, d => d.properties.fldName).join("text").attr("class", "maplabel fieldlbl")
+      .attr("x", d => proj([d.properties.cx, d.properties.cy])[0]).attr("y", d => proj([d.properties.cx, d.properties.cy])[1])
+      .attr("text-anchor", "middle").attr("font-size", s(9.5)).attr("stroke-width", s(2.6)).text(d => titleCase(d.properties.fldName));
+    const area = { ns: "North Sea", nws: "Norwegian Sea", bs: "Barents Sea" }[labelMode];
+    const ldat = area ? A.filter(f => f.properties.area_name === area && f.properties.km2 >= (area === "North Sea" ? 300 : area === "Norwegian Sea" ? 480 : 200)) :
+      labelMode === "ncs2" ? A.filter(f => f.properties.km2 >= 1200) : [];
+    L.selectAll("text.lic").data(ldat, d => d.properties.name).join("text").attr("class", "maplabel lic")
+      .attr("x", d => proj([d.properties.cx, d.properties.cy])[0]).attr("y", d => proj([d.properties.cx, d.properties.cy])[1])
+      .attr("text-anchor", "middle").attr("font-size", s(10.5)).attr("stroke-width", s(3)).text(d => d.properties.name);
+  }
+
+  const VIEWS = {
+    ncs: null, ncs2: null,
+    ns: [[1.5, 56.4], [8.2, 62.0]],
+    nws: [[0.8, 61.9], [15.0, 67.6]],
+    bs: [[17.0, 70.6], [33.5, 74.5]],
+  };
+  let current = "ncs";
+  function zoomTo(view, opts = {}) {
+    current = view;
+    const b = VIEWS[view];
+    let k = 1, tx = 0, ty = 0;
+    if (b) {
+      const pts = [b[0], [b[1][0], b[0][1]], b[1], [b[0][0], b[1][1]]].map(p => proj(p));
+      const x0 = d3.min(pts, p => p[0]), x1 = d3.max(pts, p => p[0]), y0 = d3.min(pts, p => p[1]), y1 = d3.max(pts, p => p[1]);
+      k = Math.min(W / (x1 - x0), H / (y1 - y0)) * 0.94;
+      tx = W / 2 - k * (x0 + x1) / 2; ty = H / 2 - k * (y0 + y1) / 2;
+    }
+    if (opts.focus) {
+      const [[x0, y0], [x1, y1]] = path.bounds(opts.focus);
+      k = Math.min(12, 0.4 * Math.min(W / Math.max(1, x1 - x0), H / Math.max(1, y1 - y0)));
+      k = Math.max(k, 3);
+      tx = W / 2 - k * (x0 + x1) / 2; ty = H / 2 - k * (y0 + y1) / 2;
+    }
+    labelMode = view; currentK = k;
+    const t = `translate(${tx},${ty}) scale(${k})`;
+    if (reduce) g.attr("transform", t); else g.transition().duration(900).ease(d3.easeCubicInOut).attr("transform", t);
+    drawLabels(k);
+    const area = { ns: "North Sea", nws: "Norwegian Sea", bs: "Barents Sea" }[view];
+    layers.awards.selectAll("path").classed("dim", d => (area ? d.properties.area_name !== area : false) && !opts.focus)
+      .classed("hl", d => opts.focus && d === opts.focus);
+    updateScale(k);
+  }
+  function updateScale(k) {
+    // scale bar: 100 km at ~66N using projection derivative
+    const c = proj.invert([W / 2, H / 2]) || [14, 66];
+    const p0 = proj(c), p1 = proj([c[0] + 1, c[1]]);
+    const kmPerDeg = 111.32 * Math.cos(c[1] * Math.PI / 180);
+    const pxPerKm = Math.hypot(p1[0] - p0[0], p1[1] - p0[1]) / kmPerDeg * k;
+    const nice = [10, 20, 50, 100, 200, 500].find(v => v * pxPerKm > 60) || 500;
+    document.getElementById("map-scale").innerHTML =
+      `<span style="display:inline-block;width:${(nice * pxPerKm).toFixed(0)}px;border-bottom:2px solid currentColor;border-left:1px solid currentColor;border-right:1px solid currentColor;height:5px;vertical-align:middle"></span> ${nice} km`;
+  }
+
+  // legend
+  const counts = d3.rollup(A, v => v.length, d => d.properties.group);
+  const leg = d3.select("#map-legend");
+  GROUPS.forEach(gp => leg.append("span").attr("class", "key")
+    .html(`<span class="sw bg-${cls(gp)}"></span>${gp === "Other" ? "Other operators" : gp} <span class="num" style="color:var(--muted)">${counts.get(gp) || 0}</span>`));
+  leg.append("span").attr("class", "key").html(`<span class="sw" style="background:var(--existing);border:1px solid var(--rule)"></span>Existing licences`);
+  leg.append("span").attr("class", "key").html(`<span class="sw" style="background:var(--apa);border:1px solid var(--accent)"></span>APA 2025 area`);
+
+  render();
+  zoomTo("ncs");
+  let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => { const v = current; render(); zoomTo(v); }, 120); }).observe(frame);
+  return { zoomTo, focus: f => zoomTo(f.properties.area_name === "North Sea" ? "ns" : f.properties.area_name === "Barents Sea" ? "bs" : "nws", { focus: f }) };
+}
+
+function setupSteps(map) {
+  const steps = [...document.querySelectorAll(".step")];
+  let active = null;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target !== active) {
+        active = e.target;
+        steps.forEach(s => s.classList.toggle("is-active", s === active));
+        map.zoomTo(active.dataset.step);
+      }
+    });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  steps.forEach(s => io.observe(s));
+}
+
+/* ---------------- chart helpers ---------------- */
+function svgIn(sel, w, h) {
+  const el = d3.select(sel); el.selectAll("*").remove();
+  return el.append("svg").attr("viewBox", `0 0 ${w} ${h}`).attr("role", "img");
+}
+function hbarRound(x, y, w, h, r) { // right end rounded, left anchored square
+  r = Math.min(r, w, h / 2);
+  return `M${x},${y}h${w - r}a${r},${r} 0 0 1 ${r},${r}v${h - 2 * r}a${r},${r} 0 0 1 ${-r},${r}h${-(w - r)}z`;
+}
+
+/* ---------------- chapter 1: company bars ---------------- */
+function chartCompanies(S) {
+  const rows = S.companies.slice();
+  const W = 560, rowH = 22, M = { t: 6, r: 44, b: 26, l: 118 };
+  const H = M.t + M.b + rows.length * rowH;
+  const fillFor = n => (FEATURED.has(n) ? `var(--c-${{ "Equinor": "equinor", "Aker BP": "akerbp", "Vår Energi": "var", "DNO": "dno", "Harbour Energy": "harbour", "Wellesley": "wellesley" }[n]})` : "var(--c-other)");
+
+  // counts
+  {
+    const svg = svgIn("#ch-count", W, H).attr("aria-label", "Licences per company, split into operated and partner-only");
+    const x = d3.scaleLinear().domain([0, 40]).range([M.l, W - M.r]);
+    const y = d3.scaleBand().domain(rows.map(d => d.name)).range([M.t, H - M.b]).padding(0.28);
+    svg.append("g").selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline").attr("x1", x).attr("x2", x).attr("y1", M.t).attr("y2", H - M.b);
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).ticks(4).tickSize(0).tickPadding(8)).call(g => g.select(".domain").remove());
+    const gr = svg.append("g").selectAll("g").data(rows).join("g").attr("transform", d => `translate(0,${y(d.name)})`);
+    gr.append("text").attr("class", "lbl").attr("x", M.l - 8).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").attr("text-anchor", "end").text(d => d.name);
+    gr.append("rect").attr("x", M.l).attr("y", 0).attr("height", y.bandwidth()).attr("width", d => Math.max(0, x(d.operated) - M.l - (d.licences > d.operated && d.operated ? 1 : 0)))
+      .attr("fill", d => fillFor(d.name));
+    gr.append("path").attr("d", d => d.licences > d.operated ? hbarRound(x(d.operated) + (d.operated ? 1 : 0), 0, x(d.licences) - x(d.operated) - (d.operated ? 1 : 0), y.bandwidth(), 3) : "")
+      .attr("fill", d => fillFor(d.name)).attr("fill-opacity", 0.38);
+    gr.append("text").attr("class", "val").attr("x", d => x(d.licences) + 6).attr("y", y.bandwidth() / 2).attr("dy", "0.35em")
+      .text(d => d.operated ? `${d.licences} (${d.operated} op)` : d.licences);
+    gr.append("rect").attr("x", 0).attr("width", W).attr("y", -3).attr("height", y.bandwidth() + 6).attr("fill", "transparent")
+      .on("mousemove", (ev, d) => showTip(ev, `<h4>${d.name}</h4><table><tr><td>Licences</td><td>${d.licences}</td></tr><tr><td>Operator</td><td>${d.operated}</td></tr><tr><td>Mean equity</td><td>${fmt1(d.mean_pct)}%</td></tr><tr><td>Net acreage</td><td>${fmt(Math.round(d.net_km2))} km²</td></tr></table>`))
+      .on("mouseleave", hideTip);
+  }
+  // net km2
+  {
+    const sorted = rows.slice();
+    const svg = svgIn("#ch-net", W, H).attr("aria-label", "Net acreage per company in square kilometres");
+    const x = d3.scaleLinear().domain([0, 10000]).range([M.l, W - M.r]);
+    const y = d3.scaleBand().domain(sorted.map(d => d.name)).range([M.t, H - M.b]).padding(0.28);
+    svg.append("g").selectAll("line").data(x.ticks(4)).join("line").attr("class", "gridline").attr("x1", x).attr("x2", x).attr("y1", M.t).attr("y2", H - M.b);
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).ticks(4, "~s").tickSize(0).tickPadding(8)).call(g => g.select(".domain").remove());
+    const gr = svg.append("g").selectAll("g").data(sorted).join("g").attr("transform", d => `translate(0,${y(d.name)})`);
+    gr.append("text").attr("class", "lbl").attr("x", M.l - 8).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").attr("text-anchor", "end").text(d => d.name);
+    gr.append("path").attr("d", d => hbarRound(M.l, 0, Math.max(1, x(d.net_km2) - M.l), y.bandwidth(), 3)).attr("fill", d => fillFor(d.name));
+    gr.append("text").attr("class", "val").attr("x", d => x(d.net_km2) + 6).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").text(d => fmt(Math.round(d.net_km2)));
+  }
+}
+
+/* ---------------- chapter 2: distance beeswarm ---------------- */
+function chartDistance(A) {
+  const lg = d3.select("#lg-dist");
+  GROUPS.forEach(gp => lg.append("span").attr("class", "key").html(`<span class="sw bg-${cls(gp)}" style="border-radius:50%"></span>${gp === "Other" ? "Other operators" : gp}`));
+  const W = 1100, H = 340, M = { t: 24, r: 40, b: 40, l: 30 };
+  const svg = svgIn("#ch-dist", W, H).attr("aria-label", "Beeswarm of licence distance to nearest field");
+  const x = d3.scaleSymlog().constant(2).domain([0, 110]).range([M.l, W - M.r]);
+  const r = d3.scaleSqrt().domain([0, 4500]).range([0, 30]);
+  const ticks = [0, 1, 2, 5, 10, 25, 50, 100];
+  svg.append("g").selectAll("line").data(ticks).join("line").attr("class", "gridline").attr("x1", x).attr("x2", x).attr("y1", M.t).attr("y2", H - M.b);
+  svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`)
+    .call(d3.axisBottom(x).tickValues(ticks).tickFormat(d => d + " km").tickSize(0).tickPadding(10)).call(g => g.select(".domain").remove());
+  const nodes = A.map(f => ({ p: f.properties, x: x(f.properties.dist_km), y: (H - M.b + M.t) / 2, r: Math.max(3.5, r(f.properties.km2)) }));
+  const sim = d3.forceSimulation(nodes).force("x", d3.forceX(d => x(d.p.dist_km)).strength(0.9))
+    .force("y", d3.forceY((H - M.b + M.t) / 2).strength(0.06)).force("c", d3.forceCollide(d => d.r + 1.2)).stop();
+  for (let i = 0; i < 300; i++) sim.tick();
+  nodes.forEach(n => { n.y = Math.max(M.t + n.r, Math.min(H - M.b - n.r, n.y)); });
+  // 25 km threshold annotation
+  svg.append("line").attr("x1", x(25)).attr("x2", x(25)).attr("y1", M.t - 6).attr("y2", H - M.b).attr("stroke", "var(--ink-2)").attr("stroke-width", 1);
+  svg.append("text").attr("class", "note").attr("x", x(25) - 6).attr("y", M.t - 8).attr("text-anchor", "end").text("47 licences within 25 km ←");
+  svg.append("g").selectAll("circle").data(nodes.sort((a, b) => b.r - a.r)).join("circle")
+    .attr("cx", d => d.x).attr("cy", d => d.y).attr("r", d => d.r).attr("class", d => `g-${cls(d.p.group)}`)
+    .attr("stroke", "var(--bg)").attr("stroke-width", 1.5).style("cursor", "pointer")
+    .on("mousemove", (ev, d) => showTip(ev, licTip(d.p))).on("mouseleave", hideTip);
+  // label the large licences; try above, then below, skip if both collide
+  const placed = [];
+  const lab = nodes.filter(n => n.p.km2 >= 1200).sort((a, b) => b.p.km2 - a.p.km2);
+  const lg2 = svg.append("g");
+  lab.forEach(d => {
+    const txt = `${d.p.name} · ${fmt(d.p.km2)} km²`, w = txt.length * 6.3, h = 13;
+    const cands = [d.y - d.r - 6, d.y + d.r + 15, d.y - d.r - 22, d.y + d.r + 31];
+    const hit = (y) => nodes.some(n => n !== d && Math.abs(n.x - d.x) < w / 2 + n.r && y > n.y - n.r - 1 && y - h < n.y + n.r + 1) ||
+      placed.some(b => Math.abs(b.x - d.x) < (b.w + w) / 2 + 4 && Math.abs(b.y - y) < h + 2);
+    const y = cands.find(c => c - h > 0 && c < H - M.b + 4 && !hit(c));
+    if (y === undefined) return;
+    placed.push({ x: d.x, y, w });
+    lg2.append("text").attr("class", "val").attr("x", d.x).attr("y", y).attr("text-anchor", "middle").text(txt);
+  });
+}
+
+/* ---------------- chapter 3: history ---------------- */
+function chartHistory(S) {
+  const H0 = S.history;
+  const W = 560, H = 280, M = { t: 14, r: 10, b: 30, l: 40 };
+  {
+    const svg = svgIn("#ch-hist", W, H).attr("aria-label", "Licences per APA round, split into active and relinquished");
+    const x = d3.scaleBand().domain(H0.map(d => d.year)).range([M.l, W - M.r]).padding(0.22);
+    const y = d3.scaleLinear().domain([0, 90]).range([H - M.b, M.t]);
+    svg.append("g").selectAll("line").data(y.ticks(3)).join("line").attr("class", "gridline").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y).attr("y2", y);
+    svg.append("g").attr("class", "axis").attr("transform", `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(3).tickSize(0).tickPadding(6)).call(g => g.select(".domain").remove());
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).tickValues(H0.map(d => d.year).filter(v => v % 5 === 0 || v === 2025)).tickSize(0).tickPadding(8)).call(g => g.select(".domain").remove());
+    const gr = svg.append("g").selectAll("g").data(H0).join("g");
+    gr.append("rect").attr("x", d => x(d.year)).attr("width", x.bandwidth()).attr("y", d => y(d.active)).attr("height", d => y(0) - y(d.active)).attr("fill", "var(--seq-4)");
+    gr.append("path").attr("fill", "var(--seq-1)").attr("d", d => {
+      const x0 = x(d.year), w = x.bandwidth(), yt = y(d.licences), yb = y(d.active) - (d.active ? 2 : 0), r = Math.min(3, w / 2, Math.max(0, yb - yt));
+      if (d.licences === d.active) return "";
+      return `M${x0},${yb}V${yt + r}a${r},${r} 0 0 1 ${r},${-r}h${w - 2 * r}a${r},${r} 0 0 1 ${r},${r}V${yb}z`;
+    });
+    gr.append("rect").attr("x", d => x(d.year) - 2).attr("width", x.bandwidth() + 4).attr("y", M.t).attr("height", H - M.b - M.t).attr("fill", "transparent")
+      .on("mousemove", (ev, d) => showTip(ev, `<h4>APA ${d.year}</h4><div class="meta">Awarded ${d.award_date}</div><table><tr><td>Licences</td><td>${d.licences}</td></tr><tr><td>Still active</td><td>${d.active}</td></tr><tr><td>North / Norw. / Barents</td><td>${d["North Sea"] || 0} / ${d["Norwegian Sea"] || 0} / ${d["Barents Sea"] || 0}</td></tr><tr><td>Area</td><td>${fmt(d.km2)} km²</td></tr></table>`))
+      .on("mouseleave", hideTip);
+    const last = H0[H0.length - 1];
+    svg.append("text").attr("class", "val").attr("x", x(last.year) + x.bandwidth() / 2).attr("y", y(last.licences) - 6).attr("text-anchor", "middle").text(last.licences);
+    const peak = H0.reduce((a, b) => (b.licences > a.licences ? b : a));
+    svg.append("text").attr("class", "val").attr("x", x(peak.year) + x.bandwidth() / 2).attr("y", y(peak.licences) - 6).attr("text-anchor", "middle").text(peak.licences);
+  }
+  {
+    const svg = svgIn("#ch-area", W, H).attr("aria-label", "Area awarded per APA round in square kilometres");
+    const x = d3.scaleBand().domain(H0.map(d => d.year)).range([M.l, W - M.r]).padding(0.22);
+    const y = d3.scaleLinear().domain([0, 50000]).range([H - M.b, M.t]);
+    svg.append("g").selectAll("line").data(y.ticks(3)).join("line").attr("class", "gridline").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y).attr("y2", y);
+    svg.append("g").attr("class", "axis").attr("transform", `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(3, "~s").tickSize(0).tickPadding(6)).call(g => g.select(".domain").remove());
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).tickValues(H0.map(d => d.year).filter(v => v % 5 === 0 || v === 2025)).tickSize(0).tickPadding(8)).call(g => g.select(".domain").remove());
+    svg.append("g").selectAll("path").data(H0).join("path")
+      .attr("fill", d => (d.year === 2025 ? "var(--seq-4)" : "var(--seq-3)")).attr("fill-opacity", d => (d.year === 2025 ? 1 : 0.6))
+      .attr("d", d => { const x0 = x(d.year), w = x.bandwidth(), yt = y(d.km2), yb = y(0), r = Math.min(3, w / 2); return `M${x0},${yb}V${yt + r}a${r},${r} 0 0 1 ${r},${-r}h${w - 2 * r}a${r},${r} 0 0 1 ${r},${r}V${yb}z`; })
+      .on("mousemove", (ev, d) => showTip(ev, `<h4>APA ${d.year}</h4><table><tr><td>Area awarded</td><td>${fmt(d.km2)} km²</td></tr><tr><td>Licences</td><td>${d.licences}</td></tr></table>`))
+      .on("mouseleave", hideTip);
+    const pk = H0.reduce((a, b) => (b.km2 > a.km2 ? b : a)), last = H0[H0.length - 1];
+    [pk, last].forEach(d => svg.append("text").attr("class", "val").attr("x", x(d.year) + x.bandwidth() / 2).attr("y", y(d.km2) - 6).attr("text-anchor", "middle").text(fmt(Math.round(d.km2 / 100) * 100)));
+  }
+}
+
+/* ---------------- chapter 4: pair matrix ---------------- */
+function chartPairs(A) {
+  const cnt = new Map();
+  A.forEach(f => f.properties.partners.forEach(p => cnt.set(p.c, (cnt.get(p.c) || 0) + 1)));
+  const cos = [...cnt].filter(([, n]) => n >= 5).sort((a, b) => b[1] - a[1]).map(d => d[0]);
+  const M2 = new Map();
+  A.forEach(f => { const cs = f.properties.partners.map(p => p.c); cs.forEach(a => cs.forEach(b => { if (a !== b) M2.set(a + "|" + b, (M2.get(a + "|" + b) || 0) + 1); })); });
+  const cell = 46, L = 118, T = 92, W = L + cell * cos.length + 10, H = T + cell * cos.length + 10;
+  const svg = svgIn("#ch-pairs", W, H).attr("aria-label", "Matrix of shared licences between company pairs").style("max-width", W + "px").style("min-width", "520px");
+  const steps = ["var(--seq-0)", "var(--seq-1)", "var(--seq-2)", "var(--seq-3)", "var(--seq-4)"];
+  const bin = n => (n === 0 ? 0 : n <= 2 ? 1 : n <= 5 ? 2 : n <= 9 ? 3 : 4);
+  cos.forEach((a, i) => {
+    svg.append("text").attr("class", "lbl").attr("x", L - 8).attr("y", T + i * cell + cell / 2).attr("dy", "0.35em").attr("text-anchor", "end").text(a);
+    svg.append("text").attr("class", "lbl").attr("transform", `translate(${L + i * cell + cell / 2},${T - 8}) rotate(-40)`).text(a);
+    cos.forEach((b, j) => {
+      if (j >= i) return;
+      const n = M2.get(a + "|" + b) || 0;
+      svg.append("rect").attr("x", L + j * cell + 1).attr("y", T + i * cell + 1).attr("width", cell - 2).attr("height", cell - 2).attr("rx", 3)
+        .attr("fill", steps[bin(n)]).attr("stroke", bin(n) === 0 ? "var(--rule)" : "none")
+        .on("mousemove", ev => showTip(ev, `<h4>${a} + ${b}</h4>${n} shared licence${n === 1 ? "" : "s"}`)).on("mouseleave", hideTip);
+      if (n) svg.append("text").attr("x", L + j * cell + cell / 2).attr("y", T + i * cell + cell / 2).attr("dy", "0.35em").attr("text-anchor", "middle")
+        .attr("font-size", 12).attr("font-variant-numeric", "tabular-nums").attr("pointer-events", "none")
+        .attr("fill", bin(n) >= 3 ? "var(--bg)" : "var(--ink)").text(n);
+    });
+    svg.append("text").attr("class", "note").attr("x", L + i * cell + cell / 2).attr("y", T + i * cell + cell / 2).attr("dy", "0.35em").attr("text-anchor", "middle").text(cnt.get(a));
+  });
+  svg.append("text").attr("class", "note").attr("x", L + cell * cos.length).attr("y", T + 14).attr("text-anchor", "end").text("Diagonal: licences per company");
+}
+
+/* ---------------- chapter 5: changes ---------------- */
+function tableChanges(S, A) {
+  const byLic = d3.group(S.later_changes, d => d.licence);
+  const t = d3.select("#tbl-changes");
+  t.append("thead").html(`<tr><th>Licence</th><th>Operator at grant</th><th>Line-up at grant</th><th>Registered line-up after change</th><th class="r">From</th></tr>`);
+  const tb = t.append("tbody");
+  const P = Object.fromEntries(A.map(f => [f.properties.name, f.properties]));
+  [...byLic].forEach(([lic, rows]) => {
+    const p = P[lic];
+    tb.append("tr").html(`<td class="mono">${lic}</td><td><span class="op"><span class="sw bg-${cls(p.group)}"></span>${p.operator}</span></td>
+      <td class="partners">${p.partners.map(q => `${q.c} ${fmt1(q.pct)}%`).join(", ")}</td>
+      <td class="partners">${rows.sort((a, b) => b.pct - a.pct).map(q => `${q.company} ${fmt1(q.pct)}%`).join(", ")}</td><td class="r">${rows[0].from}</td>`);
+  });
+}
+
+/* ---------------- explorer table ---------------- */
+function tableAll(A, map) {
+  const cols = [
+    { k: "name", h: "Licence", f: p => `<span class="mono">${p.name}</span>${p.strat ? '<span class="tag">strat</span>' : ""}${p.kind === "additional" ? '<span class="tag">add.</span>' : ""}` },
+    { k: "operator", h: "Operator", f: p => `<span class="op"><span class="sw bg-${cls(p.group)}"></span>${p.operator}</span>` },
+    { k: "area_name", h: "Area", f: p => p.area_name },
+    { k: "km2", h: "km²", r: true, f: p => fmt(p.km2) },
+    { k: "dist_km", h: "To field, km", r: true, f: p => fmt1(p.dist_km) },
+    { k: "nearest_field", h: "Nearest field", f: p => titleCase(p.nearest_field) },
+    { k: "partners", h: "Partners at grant", f: p => `<span class="partners">${p.partners.map(q => `${q.c} ${fmt1(q.pct)}%`).join(", ")}</span>`, sort: p => p.partners.length },
+  ];
+  const t = d3.select("#tbl");
+  let sortK = "km2", dir = -1, q = "", areaF = "All";
+  const th = t.append("thead").append("tr").selectAll("th").data(cols).join("th").attr("class", d => (d.r ? "r" : null)).attr("tabindex", 0).attr("scope", "col").text(d => d.h)
+    .on("click", (ev, d) => { if (sortK === d.k) dir = -dir; else { sortK = d.k; dir = d.r ? -1 : 1; } draw(); })
+    .on("keydown", (ev, d) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); ev.target.click(); } });
+  const tb = t.append("tbody");
+  const chips = d3.select("#area-chips");
+  ["All", "North Sea", "Norwegian Sea", "Barents Sea"].forEach(a => chips.append("button").attr("type", "button").attr("id", "chip-" + a.replace(/\s/g, "")).text(a)
+    .attr("aria-pressed", a === "All").on("click", function () { areaF = a; chips.selectAll("button").attr("aria-pressed", function () { return this.textContent === a; }); draw(); }));
+  document.getElementById("q").addEventListener("input", e => { q = e.target.value.trim().toLowerCase(); draw(); });
+  function draw() {
+    th.attr("aria-sort", d => (d.k === sortK ? (dir > 0 ? "ascending" : "descending") : "none"));
+    const c = cols.find(c => c.k === sortK);
+    const val = c.sort || (p => p[sortK]);
+    const rows = A.map(f => f.properties).filter(p => (areaF === "All" || p.area_name === areaF) &&
+      (!q || [p.name, p.operator, p.nearest_field, ...p.partners.map(x => x.c)].join(" ").toLowerCase().includes(q)))
+      .sort((a, b) => { const x = val(a), y = val(b); return (x > y ? 1 : x < y ? -1 : 0) * dir; });
+    tb.selectAll("tr").data(rows, d => d.name).join("tr").style("cursor", "pointer")
+      .html(p => cols.map(c => `<td class="${c.r ? "r" : ""}">${c.f(p)}</td>`).join(""))
+      .on("click", (ev, p) => { const f = A.find(f => f.properties.name === p.name); document.querySelector(".scrolly").scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); setTimeout(() => map.focus(f), reduce ? 0 : 500); });
+    document.getElementById("tbl-count").textContent = `${rows.length} of ${A.length} licences shown. "strat" = stratigraphic licence; "add." = additional area to an existing licence.`;
+  }
+  draw();
+}
+})();
+</script>
