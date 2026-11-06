@@ -26,12 +26,12 @@
   --card: #ffffff;
   --glass: rgba(255, 255, 255, 0.9);
   /* operator colours: brand-derived hues, re-stepped to pass CVD checks (see Methods) */
-  --c-equinor: #e74944;
-  --c-akerbp: #2543c2;
-  --c-var: #1aa58a;
-  --c-dno: #dd9f39;
-  --c-harbour: #57b0f5;
-  --c-wellesley: #9655a7;
+  --c-equinor: #b75a52;
+  --c-akerbp: #4b7bbb;
+  --c-var: #63ca9b;
+  --c-dno: #d5a75b;
+  --c-harbour: #5db8f6;
+  --c-wellesley: #b787c7;
   --c-other: #8f9aa3;
   --seq-0: #eef3f7; --seq-1: #c9dbeb; --seq-2: #8fb3d6; --seq-3: #4f82b8; --seq-4: #1f4e79;
   --f-display: "Spectral", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
@@ -44,8 +44,8 @@
     --bg: #0d141a; --sea: #111c24; --land: #26313a; --land-edge: #3a4752; --ink: #e5ecf0; --ink-2: #aab8c2;
     --muted: #7f8e99; --rule: #253440; --grid: #2a3b48; --existing: #22323e; --apa: #172a36; --accent: #8db8e0;
     --accent-soft: #23415c; --halo: #111c24; --card: #131e27; --glass: rgba(19, 30, 39, 0.9);
-    --c-equinor: #d03428; --c-akerbp: #4547ca; --c-var: #42a774; --c-dno: #b78527; --c-harbour: #0690d2;
-    --c-wellesley: #993794; --c-other: #6b7883;
+    --c-equinor: #a93c28; --c-akerbp: #3d55af; --c-var: #17966e; --c-dno: #ac813d; --c-harbour: #3c90c9;
+    --c-wellesley: #9e579c; --c-other: #6b7883;
     --seq-0: #15232d; --seq-1: #1d3a52; --seq-2: #2c5c86; --seq-3: #4f86bd; --seq-4: #8db8e0;
     color-scheme: dark;
   }
@@ -54,8 +54,8 @@
   --bg: #0d141a; --sea: #111c24; --land: #26313a; --land-edge: #3a4752; --ink: #e5ecf0; --ink-2: #aab8c2;
   --muted: #7f8e99; --rule: #253440; --grid: #2a3b48; --existing: #22323e; --apa: #172a36; --accent: #8db8e0;
   --accent-soft: #23415c; --halo: #111c24; --card: #131e27; --glass: rgba(19, 30, 39, 0.9);
-  --c-equinor: #d03428; --c-akerbp: #4547ca; --c-var: #42a774; --c-dno: #b78527; --c-harbour: #0690d2;
-  --c-wellesley: #993794; --c-other: #6b7883;
+  --c-equinor: #a93c28; --c-akerbp: #3d55af; --c-var: #17966e; --c-dno: #ac813d; --c-harbour: #3c90c9;
+  --c-wellesley: #9e579c; --c-other: #6b7883;
   --seq-0: #15232d; --seq-1: #1d3a52; --seq-2: #2c5c86; --seq-3: #4f86bd; --seq-4: #8db8e0;
   color-scheme: dark;
 }
@@ -430,7 +430,7 @@ footer { padding-block: 1.5rem 3rem; border-top: 1px solid var(--rule); font-siz
             <li>Sodir's native datum is ED50; geometries were requested in WGS84. The shift of about 100 m is below the resolution of these maps.</li>
             <li>Distances are edge to edge in ETRS89-LAEA (EPSG:3035), to fields that are "Producing" or "Approved for production".</li>
             <li>The map uses a Lambert conformal conic projection (58° and 72° N, central meridian 14° E). Outlines are simplified to about 300 m.</li>
-            <li>Operator colours start from each company's brand hue. Lightness and saturation were then adjusted until every pair stays distinct under simulated colour-vision deficiency, in both themes. They approximate the brands and are not official brand values.</li>
+            <li>Operator colours start from each company's brand hue and are deliberately muted. Lightness and saturation were tuned so that every pair stays distinct under simulated colour-vision deficiency, in both themes. They approximate the brands and are not official brand values.</li>
           </ul>
         </div>
       </div>
@@ -633,7 +633,7 @@ function createMap({ A, land, blocks, quads, apa, existing, fields, seab, towns 
     for (const f of order) {
       if (f.a < 0.01) continue;
       ctx.globalAlpha = f.a; ctx.fillStyle = C.grp[f.properties.group]; ctx.fill(f.path);
-      ctx.strokeStyle = C.sea; ctx.lineWidth = lw(0.8); ctx.stroke(f.path);
+      ctx.globalAlpha = f.a * 0.45; ctx.strokeStyle = C.ink; ctx.lineWidth = lw(0.6); ctx.stroke(f.path);
     }
     ctx.globalAlpha = 1;
     const marked = new Set(state.call.map(n => byName.get(n)).filter(Boolean));
@@ -648,7 +648,7 @@ function createMap({ A, land, blocks, quads, apa, existing, fields, seab, towns 
       if (f.sz * k >= 5 || f.a < 0.01) continue;
       const [x, y] = sp(f.c);
       ctx.globalAlpha = f.a; ctx.beginPath(); ctx.arc(x, y, 3.2, 0, 2 * Math.PI);
-      ctx.fillStyle = C.grp[f.properties.group]; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = marked.has(f) ? C.ink : C.sea; ctx.stroke();
+      ctx.fillStyle = C.grp[f.properties.group]; ctx.fill(); ctx.lineWidth = 0.8; ctx.strokeStyle = C.ink; ctx.globalAlpha = f.a * (marked.has(f) ? 1 : 0.45); ctx.stroke();
     }
     ctx.globalAlpha = 1;
     drawLabels(k, sp);
@@ -885,7 +885,7 @@ function chartCompanies(S) {
     gr.append("text").attr("class", "lbl").attr("x", M.l - 8).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").attr("text-anchor", "end").text(d => d.name);
     gr.append("rect").attr("x", M.l).attr("height", y.bandwidth()).attr("width", d => Math.max(0, x(d.operated) - M.l - (d.licences > d.operated && d.operated ? 1 : 0))).attr("fill", d => fillFor(d.name));
     gr.append("path").attr("d", d => d.licences > d.operated ? hbarRound(x(d.operated) + (d.operated ? 1 : 0), 0, x(d.licences) - x(d.operated) - (d.operated ? 1 : 0), y.bandwidth(), 3) : "")
-      .attr("fill", d => fillFor(d.name)).attr("fill-opacity", 0.38);
+      .attr("fill", d => fillFor(d.name)).attr("fill-opacity", 0.45);
     gr.append("text").attr("class", "val").attr("x", d => x(d.licences) + 6).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").text(d => (d.operated ? `${d.licences} (${d.operated} op)` : d.licences));
     gr.append("rect").attr("width", W).attr("y", -3).attr("height", y.bandwidth() + 6).attr("fill", "transparent")
       .on("mousemove", (ev, d) => tipAt(ev, `<h4>${d.name}</h4><table><tr><td>Licences</td><td>${d.licences}</td></tr><tr><td>Operator</td><td>${d.operated}</td></tr><tr><td>Mean equity</td><td>${fmt1(d.mean_pct)}%</td></tr><tr><td>Net acreage</td><td>${fmt(Math.round(d.net_km2))} km²</td></tr></table>`))
