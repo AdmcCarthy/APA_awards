@@ -2,8 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/admiring-hypatia-p3plbt]
-    paths: ["web/**", "scripts/build_site.py", ".github/workflows/pages.yml"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -20,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: python scripts/build_site.py _site
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked --no-dev
+      - name: Build the story with SubScout (fails on unknown metrics, missing sources, etc.)
+        run: uv run --no-dev subscout build . --out _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
