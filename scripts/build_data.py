@@ -1,7 +1,7 @@
 """Build compact web data for the APA narrative page from raw Sodir layers.
 
 Inputs : data/raw/*.geojson (from fetch_sodir.py), WGS84 lon/lat.
-Outputs: web/data/*.json
+Outputs: data/*.json (story inputs; data/raw/ is git-ignored)
 
 Notes
 -----
@@ -25,7 +25,7 @@ from shapely.geometry import MultiPolygon, Polygon
 from shapely.geometry.polygon import orient
 
 RAW = Path("data/raw")
-OUT = Path("web/data")
+OUT = Path("data")
 ROUND = "TFO2025"
 EQUAL_AREA = 3035
 

@@ -1,4 +1,4 @@
-"""Partnership history across all APA (TFO) rounds -> web/data/partners.json.
+"""Partnership history across all APA (TFO) rounds -> data/partners.json.
 
 Line-ups are taken at grant (earliest licensee record per licence); the
 operator at grant is the licensee whose operatorship starts first. Companies
@@ -20,7 +20,7 @@ import pandas as pd
 from companies import FAMILY_NOTES, family
 
 RAW = Path("data/raw")
-OUT = Path("web/data")
+OUT = Path("data")
 NETWORK_YEARS = [2008, 2013, 2019, 2025]
 SHARE_FAMILIES = ["Equinor", "Aker BP", "Petoro", "Vår Energi", "DNO", "Harbour Energy"]
 
