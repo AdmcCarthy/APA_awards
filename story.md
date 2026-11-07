@@ -227,6 +227,106 @@ confidence: observed
 ```
 :::
 
+::: step {beat=support kicker="Who partners with whom"}
+### APA 2008: a mesh of partners
+
+Each dot is a company family, sized by the licences it won in the round; a line joins two families
+that share at least one licence, thicker for more. In APA 2008, {{ net_2008_groups }} families
+shared {{ net_2008_licences }} licences through {{ net_2008_pairs }} distinct partnerships.
+
+```chart
+id: network
+type: network
+data: net_nodes
+edges: net_edges
+frame: year
+node: id
+size: n
+weight: n
+colour_by: group
+size_label: licences won
+weight_label: licences shared
+frame_label: "APA {frame}"
+label_top: 8
+tooltip: [op]
+tooltip_labels: { op: As operator }
+frame_default: 2008
+title: In 2008, {{ net_2008_groups }} families shared licences in a loose mesh
+subtitle: Company families winning APA licences, linked where they share a licence
+source: sodir
+confidence: derived
+notes: Families are grouped by today's owner, so the same dot can be followed from round to round; hover or tap a dot for its partners. Layout is force-directed and positions carry no geographic meaning.
+```
+:::
+
+::: step {beat=support kicker="Who partners with whom"}
+### APA 2013: the crowd at its peak
+
+By 2013 the mesh had spread to {{ net_2013_groups }} families and {{ net_2013_pairs }}
+partnerships across {{ net_2013_licences }} licences. Many of the new dots are small explorers with
+one or two partner stakes each.
+
+```chart
+use: network
+frame: 2013
+title: "2013: {{ net_2013_groups }} families and {{ net_2013_pairs }} partnerships"
+```
+:::
+
+::: step {beat=support kicker="Who partners with whom"}
+### APA 2019: thinning out
+
+Because families are grouped by today's owner, mergers alone cannot shrink this picture: a dot
+only disappears when its family stops winning acreage. By 2019, {{ net_2019_groups }} families
+remained, linked by {{ net_2019_pairs }} partnerships.
+
+```chart
+use: network
+frame: 2019
+title: "2019: down to {{ net_2019_groups }} families"
+```
+:::
+
+::: step {beat=support kicker="Who partners with whom"}
+### APA 2025: from mesh to hub
+
+This year {{ net_2025_groups }} families share {{ net_2025_pairs }} partnerships. Equinor, Aker BP
+and Petoro sit at the centre: {{ hub_in }} of the {{ n_licences }} licences include at least one of
+the three.
+
+```chart
+use: network
+frame: 2025
+highlight: [Equinor, Aker BP, Petoro]
+title: "{{ hub_in }} of {{ n_licences }} licences include Equinor, Aker BP or Petoro"
+```
+:::
+
+::: step {beat=support kicker="Partnerships that last"}
+### The pairs that keep coming back
+
+Equinor and Petoro have shared licences in {{ ep_rounds }} rounds, every one since 2004, and
+{{ ep_total }} licences in all. Aker BP and DNO shared only {{ ad_before_2017 }} licences before
+2017 but {{ ad_since_2017 }} since. Centrica and DNO, a regular pairing until 2015, have not shared
+a licence since.
+
+```chart
+id: pairtime
+type: heat
+data: pairs
+x: year
+y: pair
+value: n
+rows: data
+value_label: licences shared
+title: Equinor and Petoro have shared licences in every round since 2004
+subtitle: The {{ n_pairs_shown }} family pairs with the most shared APA licences since 2003, licences shared per round
+source: sodir
+confidence: derived
+notes: Darker means more shared licences in that round. Families as they are today; see How we know.
+```
+:::
+
 ::: step {beat=support kicker="Equinor's U-turn"}
 ### Equinor's U-turn
 
@@ -335,6 +435,7 @@ web. Distances are edge to edge in ETRS89-LAEA (EPSG:3035). Operator colours fol
 identity palette in a fixed order and are not brand colours; operators beyond its slots are grey.
 
 **Rebuilt with SubScout.** This page was rebuilt from the original hand-coded version with the
-SubScout framework, as its first real test case. The partnership network chapter of the original is
-not yet ported.
+SubScout framework, as its first real test case. Network layouts are computed at build time with a
+force-directed method; each round starts from the previous round's positions, and all rounds share
+one scale for dot area, line width and spacing.
 :::

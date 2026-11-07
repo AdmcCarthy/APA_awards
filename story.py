@@ -45,8 +45,27 @@ def datasets(d):
         .sort_values(["from", "licence", "pct"], ascending=[True, True, False])
         .rename(columns={"licence": "Licence", "company": "Company", "pct": "Share", "from": "From"})
     )
+    grp = lambda c: c if c in GROUPS else "Other"
+    net_nodes = pd.DataFrame(
+        [{"year": int(y), "id": n["id"], "n": n["n"], "op": n["op"], "group": grp(n["id"])}
+         for y, net in p["networks"].items() for n in net["nodes"]]
+    )
+    net_edges = pd.DataFrame(
+        [{"year": int(y), **e} for y, net in p["networks"].items() for e in net["edges"]]
+    )
+    pairs = pd.DataFrame(
+        [{"pair": f"{r['a']} – {r['b']}", "year": yr, "n": c}
+         for r in p["pairs"]["rows"] for yr, c in zip(p["pairs"]["years"], r["counts"])]
+    )
     return {"props": props, "companies": companies, "history": history, "club": club,
-            "equinor_share": equinor, "changes": changes}
+            "equinor_share": equinor, "changes": changes, "net_nodes": net_nodes,
+            "net_edges": net_edges, "pairs": pairs}
+
+
+def pair_counts(p, a, b):
+    """Licences shared by families a and b, per round: {year: n}."""
+    row = next(r for r in p["pairs"]["rows"] if {r["a"], r["b"]} == {a, b})
+    return dict(zip(p["pairs"]["years"], row["counts"]))
 
 
 def metrics(d):
@@ -61,7 +80,25 @@ def metrics(d):
     far = a[a.dist_km > 50]
     remote = a.loc[a.dist_km.idxmax()]
     sodir, obs, der = "sodir", "observed", "derived"
+    nets = p["networks"]
+    hub = {"Equinor", "Aker BP", "Petoro"}
+    hub_in = int(a.partners.map(lambda ps: any(x["c"] in hub for x in ps)).sum())
+    ep = pair_counts(p, "Equinor", "Petoro")
+    ad = pair_counts(p, "Aker BP", "DNO")
+    net_m = {}
+    for y in ("2008", "2013", "2019", "2025"):
+        net_m[f"net_{y}_groups"] = metric(len(nets[y]["nodes"]), f"Company families winning APA {y} licences (grouped by today's owner)", sodir, der)
+        net_m[f"net_{y}_pairs"] = metric(len(nets[y]["edges"]), f"Distinct pairs of families sharing at least one APA {y} licence", sodir, der)
+        if y in ("2008", "2013"):
+            net_m[f"net_{y}_licences"] = metric(nets[y]["licences"], f"Licences in APA {y}", sodir, obs)
     return {
+        **net_m,
+        "n_pairs_shown": metric(len(p["pairs"]["rows"]), "Family pairs in the partnership timeline (most shared licences, 2003-2025)", sodir, der),
+        "hub_in": metric(hub_in, "APA 2025 licences that include Equinor, Aker BP or Petoro", sodir, der),
+        "ep_total": metric(sum(ep.values()), "Licences shared by Equinor and Petoro, APA 2003-2025", sodir, der),
+        "ep_rounds": metric(sum(1 for v in ep.values() if v), "APA rounds in which Equinor and Petoro shared a licence", sodir, der),
+        "ad_since_2017": metric(sum(v for y, v in ad.items() if y >= 2017), "Licences shared by Aker BP and DNO, APA 2017-2025", sodir, der),
+        "ad_before_2017": metric(sum(v for y, v in ad.items() if y < 2017), "Licences shared by Aker BP and DNO, APA 2003-2016", sodir, der),
         "n_licences": metric(len(a), "Licences in round TFO2025 (APA 2025)", sodir, obs),
         "n_offered": metric(s["n_offered_announced"], "Offers in the ministry's announcement, 13 January 2026", "ministry", obs),
         "near_1km": metric(int((a.dist_km <= 1).sum()), "Licences ≤ 1 km from a producing or approved field (edge to edge)", sodir, der),
