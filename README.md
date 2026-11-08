@@ -17,7 +17,7 @@ scripts/     fetch and processing pipeline that rebuilds data/ from Sodir
 
 The page reads as a scrolling article or plays as a deck (**Present** button). Every number in the
 prose is computed from `data/` at build time and listed, with its method, source and confidence, in
-the page's "How we know" appendix. The build fails on unknown metrics, missing sources or figures
+the page's "Basis of analysis" appendix. The build fails on unknown metrics, missing sources or figures
 without a confidence level, and CI also fails on warnings (for example, a number typed by hand).
 
 ## Build

@@ -1,7 +1,7 @@
 ---
 title: Close to home
 short_title: "Close to home · APA 2025"
-dek: Norway's latest licensing round was about filling gaps around existing fields, and it was played by a shrinking club.
+dek: Norway's latest licensing round filled gaps around existing fields. It was taken up by fewer companies, in closer partnerships, and stakes were already changing hands within months.
 kicker: NCS · APA 2025 · TFO2025 · granted 20 March 2026
 byline: Adam McCarthy
 date: 2026-11-07
@@ -41,7 +41,7 @@ data:
 Every year Norway opens a predefined area of mature acreage, the APA, for licence applications. The
 latest round handed out {{ n_licences }} production licences. Read on to see where they are, who won
 them, and how close they sit to fields that already produce. Every number here is computed from
-Sodir's public data; hover one for its exact value, or see [How we know](#how-we-know).
+Sodir's public data; hover one for its exact value, or see [Basis of analysis](#basis-of-analysis).
 
 ::: step {beat=situation kicker="The shelf"}
 ### {{ n_licences }} new licences among hundreds of old ones
@@ -78,7 +78,7 @@ notes: Hover or tap a licence for its line-up and distance to the nearest field.
 :::
 
 ::: step {beat=situation kicker="North Sea"}
-### Slices around the hubs
+### In the North Sea the licences are slices around existing hubs
 
 {{ ns_n }} of the licences are in the North Sea, and half of them lie within
 {{ ns_median_dist | round:1 | km }} of a producing field. {{ ns_strat }} are stratigraphic, granted
@@ -108,7 +108,7 @@ title: "Norwegian Sea: {{ nws_n }} licences, a few far from home"
 :::
 
 ::: step {beat=situation kicker="Barents Sea"}
-### Going it alone
+### Aker BP holds the round's most remote licence on its own
 
 Aker BP's licence 1313 lies {{ remote_km | round:0 | km }} from Snøhvit, the most remote in the round,
 and Aker BP holds it with no partners. Only {{ n_solo }} licences in the whole round have a single
@@ -193,7 +193,7 @@ exception: { rule: linear-scale, reason: "A symmetric-log scale stretches distan
 :::
 
 ::: step {beat=answer kicker="Near-field"}
-### Harbour and Aker BP, side by side
+### Harbour and Aker BP sit at opposite ends of the near-field scale
 
 Highlighting the two shows the split: Harbour's dots cluster at zero, Aker BP's run from the hubs out
 to the frontier.
@@ -228,7 +228,7 @@ confidence: observed
 :::
 
 ::: step {beat=support kicker="Who partners with whom"}
-### APA 2008: a mesh of partners
+### In APA 2008 the partnerships formed a wide mesh
 
 Each dot is a company family, sized by the licences it won in the round; a line joins two families
 that share at least one licence, thicker for more. In APA 2008, {{ net_2008_groups }} families
@@ -260,7 +260,7 @@ notes: Families are grouped by today's owner, so the same dot can be followed fr
 :::
 
 ::: step {beat=support kicker="Who partners with whom"}
-### APA 2013: the crowd at its peak
+### The mesh was at its widest in APA 2013
 
 By 2013 the mesh had spread to {{ net_2013_groups }} families and {{ net_2013_pairs }}
 partnerships across {{ net_2013_licences }} licences. Many of the new dots are small explorers with
@@ -274,7 +274,7 @@ title: "2013: {{ net_2013_groups }} families and {{ net_2013_pairs }} partnershi
 :::
 
 ::: step {beat=support kicker="Who partners with whom"}
-### APA 2019: thinning out
+### By APA 2019 fewer families took part
 
 Because families are grouped by today's owner, mergers alone cannot shrink this picture: a dot
 only disappears when its family stops winning acreage. By 2019, {{ net_2019_groups }} families
@@ -288,7 +288,7 @@ title: "2019: down to {{ net_2019_groups }} families"
 :::
 
 ::: step {beat=support kicker="Who partners with whom"}
-### APA 2025: from mesh to hub
+### In APA 2025 three companies sit at the centre of the partnerships
 
 This year {{ net_2025_groups }} families share {{ net_2025_pairs }} partnerships. Equinor, Aker BP
 and Petoro sit at the centre: {{ hub_in }} of the {{ n_licences }} licences include at least one of
@@ -323,12 +323,12 @@ title: Equinor and Petoro have shared licences in every round since 2004
 subtitle: The {{ n_pairs_shown }} family pairs with the most shared APA licences since 2003, licences shared per round
 source: sodir
 confidence: derived
-notes: Darker means more shared licences in that round. Families as they are today; see How we know.
+notes: Darker means more shared licences in that round. Families as they are today; see the Basis of analysis.
 ```
 :::
 
 ::: step {beat=support kicker="Equinor's U-turn"}
-### Equinor's U-turn
+### Equinor has regained the share it lost to newcomers
 
 As newcomers poured in, Equinor's share fell to {{ equinor_share_2013 | pct }} in APA 2013. It has
 climbed back to {{ equinor_share | pct }}. The state's stake has grown too: Petoro is in
@@ -347,14 +347,16 @@ title: Equinor's share fell to {{ equinor_share_2013 | pct }}, then climbed back
 subtitle: Share of each round's licences that include Equinor (Statoil and Hydro before 2018)
 source: sodir
 confidence: derived
-notes: Company families as they are today; see How we know.
+notes: Company families as they are today; see the Basis of analysis.
 ```
 :::
 
-## Most licences are handed back
+## What happens to a licence after the award
 
 Of the {{ old_total }} licences from rounds up to 2015, only {{ old_active_share | pct }} are still
-active. At that rate, most of this year's {{ n_licences }} will be returned within a decade.
+active. At that rate, most of this year's {{ n_licences }} will be returned within a decade. A licence is
+returned when its work programme does not justify going on, and the acreage is then free for a later round, so
+hand-backs are part of how the annual rounds keep exploration moving around existing infrastructure. *Interpreted.*
 
 ```chart
 id: history
@@ -371,7 +373,7 @@ confidence: observed
 notes: Original licences only. Each round is announced the following January.
 ```
 
-## Four licences have already changed hands
+## Stakes are already changing hands
 
 Partners often farm in, farm out or swap stakes within months of the award. Between June and
 October 2026, Sodir registered new ownership for {{ n_changed }} of the {{ n_licences }} licences.
