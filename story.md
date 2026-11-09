@@ -9,7 +9,7 @@ arc: scqa
 register: section
 palette: tide
 surface: nordic-cool
-horizon: true
+horizon: { data: header, height: 80, label: false }
 groups: [Equinor, Aker BP, Vår Energi, Wellesley, DNO, Harbour Energy]
 kpis:
   - { metric: n_licences, label: production licences granted }
@@ -27,6 +27,7 @@ sources:
     accessed: 2026-01-13
     note: Announced offers; Sodir's licence register is used for all counts
 data:
+  header: data/header.json
   awards: data/awards.json
   apa_area: data/apa_area.json
   land: data/land.json

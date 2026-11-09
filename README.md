@@ -11,7 +11,8 @@ and granted 20 March 2026 (Sodir round code `TFO2025`). Built with
 ```
 story.md     the narrative: steps, charts, tables, with every number as a {{ expression }}
 story.py     the metrics those expressions use, and derived tables, computed from data/
-data/        story inputs (simplified GeoJSON and JSON), built from Sodir FactMaps
+data/        story inputs (simplified GeoJSON and JSON), built from Sodir FactMaps; header.json is the hero's
+             synthetic seismic band (scripts/make_header.py, seismic_art), not Sodir data
 scripts/     fetch and processing pipeline that rebuilds data/ from Sodir
 ```
 
