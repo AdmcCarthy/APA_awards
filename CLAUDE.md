@@ -1,5 +1,10 @@
 # APA_awards: working rules
 
+@../../shared/idiom/CORE.md
+
+Voice, working rules and dataset terms follow Idiom (`CORE.md`, `DATASETS.md`, `house/`; private repo, normally linked at
+`../../shared/idiom`). The import is harmless when the file is absent.
+
 A SubScout story ("Close to home") on Norway's APA 2025 licensing round. Follow SubScout's
 `styleguide/` (github.com/AdmcCarthy/SubScout) for voice, rules, language and performance.
 
