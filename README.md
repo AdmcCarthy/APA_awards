@@ -53,3 +53,9 @@ uv run pytest -q
 ## GitHub Pages
 
 `.github/workflows/pages.yml` builds the story with SubScout and deploys `_site/` on pushes to `main`.
+
+## Licence and acknowledgement
+
+MIT License with Acknowledgement ([LICENSE](LICENSE)): the MIT terms plus one condition. Anything built with this work says so,
+visibly and in plain words, and does not imply endorsement: "Built with APA awards by Adam McCarthy (https://github.com/AdmcCarthy/APA_awards)". The wording is custom, so
+the licence is not OSI-approved. Sodir data are used under the Norwegian Licence for Open Government Data (NLOD 2.0); attribution lines are in the story's basis of analysis. Third-party data and vendored code keep their own terms.
